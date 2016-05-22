@@ -1,3 +1,5 @@
+<!--Por Kevin. Página principal del juego-->
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,15 +11,13 @@
 	<body>
 		<section>
 			<a href="registro.html">Registrarse</a>
-			<form action="" method="POST">
-				<label>Usuario</label><input type="text" id="usuario"/>
-				<label>Contraseña</label><input type="text" id="contra"/>
-				<input type="submit" value="Entrar"/>
+			<form action="../programs/inicio.php" method="POST" id="formulario">
+				<label>Usuario</label><input type="text" name="usuario" id="usuario" required/>
+				<label>Contraseña</label><input type="text" name="contra" id="contra" required/>
+				<input type="submit" value="Entrar" id="entrar" disabled/>
 			</form>
 		</section>
-		<script src="./jquery-2.2.3.js"></script>
-		<script>
-			var 
-		</script>
+		<script src="../programs/jquery-2.2.3.js"></script>
+		<script src="../programs/validPrincipalAjax.js"></script>
 	</body>
 </html>
