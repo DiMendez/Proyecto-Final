@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Registro
+		</title>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		  <script src="../programs/js/jquery-1.8.2.min.js"></script>
+		  <script src="../programs/js/jquery.validate.js"></script>
+		  <script src="../programs/registro.js"></script>
+	</head>
+	<body>
+		<section>
+		<div id="ok"></div>
+		<!--<div id="contra_info">
+		   <h4>La contraseña debería cumplir con los siguientes requerimientos:</h4>
+		   <ul>
+			  <li id="letter">Al menos debería tener <strong>una letra</strong></li>
+			  <li id="capital">Al menos debería tener <strong>una letra en mayúsculas</strong></li>
+			  <li id="number">Al menos debería tener <strong>un número</strong></li>
+			  <li id="length">Debería tener <strong>8 carácteres</strong> como mínimo</li>
+		   </ul>
+		</div>-->
+			<form  method="POST" id="formid">
+			<!--Validación comienza desde html-->
+				<label>Nombre de usuario</label><input type="text" name="name" pattern="[A-z\d\s._#]{4,20}" id="name" required/>
+				<label>Número de cuenta</label><input type="text" name="cuenta"pattern="[\d]{6-9}" id="cuenta" required/>
+				<label>Contraseña</label><input type="password" name="contra" id="contra" required/>
+				<label>Compruebe contraseña</label><input type="password" name="contra2" id="contra2"/>
+				<p><span></span>
+				<input type="submit" value="Enviar" />
+			</form>
+		</section>
+		<section>
+		</section>
+		<aside>
+		</aside>
+		<footer>
+		<footer>
+		
+	</body>
+</html>
