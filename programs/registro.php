@@ -1,10 +1,14 @@
 <?php
+	
+	$conexion=mysqli_connect('localhost','root','','juego');//Por Bruce: IMPORTANTE si lo van a probar aqui la BD se llama juego
+	//Por Bruce la BD solo contempla el campo de Cuenta y Contraseña(HSP) omitiré $_POST('name') en la querys
 	$nombre=$_POST['name'];
 	$cuenta=$_POST['cuenta'];
 	$contra=$_POST['contra'];
-	$bd=array('Alma','Kevin','Diana'); //se supone que será en base de datos
-	$bdcuenta=array('315153406','3123457');
-	$bdcontra=array('holaitsme');
+	//$bd=array('Alma','Kevin','Diana'); //se supone que será en base de datos
+	//$bdcuenta=array('315153406','3123457');
+	//$bdcontra=array('holaitsme');
+	$nombreQ=mysqli_query($conexion,'SELECT USUARIO_NO,USUARIO HSP FROM USUARIO WHERE USUARIO_NO="'.$cuenta.'";');
 	function oh()
 	{
 			echo'<br/>';
@@ -19,7 +23,8 @@
 		((in_array($contra,$bdcontra)))?$e=false:$e=true;
 		if(($a && $b))
 		{
-			if(($c && $d && $e)) //si no existía ninguna de las tres, entonces se registra
+			if(mysqli_num_rows($nombreQ)==0) //si no existía ninguna de las tres, entonces se registra
+			//Por Bruce añadi la condicional que realiza el registro si las filas de la query son 0
 				//insertar para registrar
 			{
 				echo'registro concluido exitosamente '.$nombre;
