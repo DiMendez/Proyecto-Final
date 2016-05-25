@@ -4,6 +4,7 @@
 		<meta charset="utf-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="viewpiort" content="width=device-width, initial-scale=1"/>
+		<script src="jquery-2.2.3.js"></script>
 		<title>Seguridad</title>
 	</head>
 	<body>
@@ -17,16 +18,24 @@
 				if(isset($_POST["num_unidad"]))
 				{	
 					$unidad=$_POST["num_unidad"];
-					$consul=mysqli_query($con,"SELECT PREGUNTA_NOMBRE,PREGUNTA_MEDIA,PREGUNTA_OPCION1,PREGUNTA_OPCION2, 						PREGUNTA_OPCION3,PREGUNTA_OPCION4 FROM PREGUNTAS WHERE MATERIA_NO='".$materia."' AND 						UNIDAD_NO='".$unidad."'");
-					//var_dump($preguntas);
+					$consul=mysqli_query($con,"SELECT * FROM PREGUNTAS WHERE MATERIA_NO='".$materia."'
+					AND UNIDAD_NO='".$unidad."';");
 					$numero=mysqli_num_rows($consul);
-					echo $numero;
-					$preguntas=mysqli_fetch_assoc($consul);
-					foreach($preguntas as $e)
-						echo $e;
+					for($n=0;$n<$numero;$n++)
+						$arrPreg[]=mysqli_fetch_assoc($consul);
+					$azar=rand(0,$numero-1);
+					$preguntas=$arrPreg[$azar];
+					echo "<div>".$preguntas['PREGUNTA_NOMBRE']."</div>";
+					echo "<button type='button'>".$preguntas['PREGUNTA_OPCION1']."</button><br/>";
+					echo "<button type='button'>".$preguntas['PREGUNTA_OPCION2']."</button><br/>";
+					echo "<button type='button'>".$preguntas['PREGUNTA_OPCION3']."</button><br/>";
+					echo "<button type='button' id='cuatro'>".$preguntas['PREGUNTA_OPCION4']."</button><br/>";
+					echo "<p id='pe'>".$preguntas['PREGUNTA_RESPUESTA']."</p><br/>";
+					
+					
 				}
 				else
-					echo'¿Pero de cuál asignatura?';
+					echo'¿Pero de cuál unidad?';
 			}
 			else
 				echo'¿De cuál materia?';
@@ -34,5 +43,11 @@
 		else
 			echo'Error de conexión';
 	?>
+	<script>
+		$("#cuatro").click=function(){
+			if($(this).val()==$("#pe").val())
+			alert('OK');
+		};
+	</script>
 	</body>
 </html>
