@@ -26,6 +26,10 @@ CREATE TABLE `ALUMNO` (
   `USUARIO_NO` varchar(9) NOT NULL DEFAULT '',
   `GRADO` varchar(3) DEFAULT NULL,
   `ALUMNO_NOMBRE` varchar(25) DEFAULT NULL,
+  `ALUMNO_BUENAS` int(11) DEFAULT NULL,
+  `ALUMNO_PUNT` int(11) DEFAULT NULL,
+  `ALUMNO_STYLE` char(7) DEFAULT NULL,
+  `ALUMNO_FECHA` varchar(8) DEFAULT NULL,
   PRIMARY KEY (`USUARIO_NO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -112,6 +116,36 @@ LOCK TABLES `MATERIAS` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `PREGUNTAS`
+--
+
+DROP TABLE IF EXISTS `PREGUNTAS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `PREGUNTAS` (
+  `MATERIA_NO` char(4) DEFAULT NULL,
+  `UNIDAD_NO` int(11) DEFAULT NULL,
+  `PREGUNTA_NOMBRE` varchar(200) DEFAULT NULL,
+  `PREGUNTA_MEDIA` varchar(200) DEFAULT NULL,
+  `PREGUNTA_OPCION1` varchar(200) DEFAULT NULL,
+  `PREGUNTA_OPCION2` varchar(200) DEFAULT NULL,
+  `PREGUNTA_OPCION3` varchar(200) DEFAULT NULL,
+  `PREGUNTA_OPCION4` varchar(200) DEFAULT NULL,
+  `PREGUNTA_RESPUESTA` tinyint(4) DEFAULT NULL,
+  `PREGUNTA_XCONFIRMAR` char(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `PREGUNTAS`
+--
+
+LOCK TABLES `PREGUNTAS` WRITE;
+/*!40000 ALTER TABLE `PREGUNTAS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `PREGUNTAS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `PROFESOR`
 --
 
@@ -121,6 +155,7 @@ DROP TABLE IF EXISTS `PROFESOR`;
 CREATE TABLE `PROFESOR` (
   `USUARIO_NO` varchar(9) NOT NULL DEFAULT '',
   `PROFESOR_NOMBRE` varchar(25) DEFAULT NULL,
+  `PROFESOR_FECHA` varchar(8) DEFAULT NULL,
   PRIMARY KEY (`USUARIO_NO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -132,6 +167,30 @@ CREATE TABLE `PROFESOR` (
 LOCK TABLES `PROFESOR` WRITE;
 /*!40000 ALTER TABLE `PROFESOR` DISABLE KEYS */;
 /*!40000 ALTER TABLE `PROFESOR` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `UNIDAD`
+--
+
+DROP TABLE IF EXISTS `UNIDAD`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `UNIDAD` (
+  `MATERIA_NO` char(4) NOT NULL DEFAULT '',
+  `UNIDAD_NO` int(11) NOT NULL DEFAULT '0',
+  `UNIDAD_NOMBRE` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`MATERIA_NO`,`UNIDAD_NO`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `UNIDAD`
+--
+
+LOCK TABLES `UNIDAD` WRITE;
+/*!40000 ALTER TABLE `UNIDAD` DISABLE KEYS */;
+/*!40000 ALTER TABLE `UNIDAD` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -157,6 +216,27 @@ LOCK TABLES `USUARIO` WRITE;
 /*!40000 ALTER TABLE `USUARIO` DISABLE KEYS */;
 /*!40000 ALTER TABLE `USUARIO` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `VISITAS`
+--
+
+DROP TABLE IF EXISTS `VISITAS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `VISITAS` (
+  `VISITAS` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `VISITAS`
+--
+
+LOCK TABLES `VISITAS` WRITE;
+/*!40000 ALTER TABLE `VISITAS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `VISITAS` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -167,4 +247,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-22 14:27:46
+-- Dump completed on 2016-05-25 14:22:55
