@@ -10,7 +10,10 @@ Falta conexión con BD y el contenido que se desplegará-->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Nombre</title>
 	</head>
+	<body>
 		<?php
+		//Por Bruce
+		
 		if(isset($_POST['usuario']) && isset($_POST['contra']))
 		{
 			//insertar la query
@@ -84,4 +87,5 @@ Falta conexión con BD y el contenido que se desplegará-->
 		else
 			echo '<p>Inicia sesión</p><a href="principal.html">Página Principal</a>';
 		?>
+	</body>
 </html>

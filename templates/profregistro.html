@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Registro</title>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="../programs/js/jquery-1.8.2.min.js"></script>
+		<script src="../programs/js/jquery.validate.js"></script>
+		<script src="../programs/js/additional-methods.js"></script>
+		<script src="../programs/profregistro.js"></script>
+	</head>
+	<body>
+		<header>
+		</header>
+		<section>
+			<div id="ok"></div>
+			<form method="POST" id="form">
+				<label>Nombre</label><input type="text" name="nom" id="nom" pattern="[A-z\s]{4,20}" required/>
+				<label>Apellido paterno</label><input type="text" id="app"name="app"pattern="[A-z\s]{4,20}"required/>
+				<label>Apellido materno</label><input type="text"name="apm" id="apm"pattern="[A-z\s]{4,20}"required/>
+				<!--No pongo contraseña, que el sistema le mande una aleatoria y que tenga oportunidad de cambiarla después-->
+				<label>Cuenta</label><input type="text" name="cuenta" id="cuenta"pattern="[\d]{6}" required/>		
+				<input type="submit" value="Registrar"/>
+			</form>
+		</section>
+		<section>
+		</section>
+		<aside>
+		</aside>
+		<footer>
+		</footer>
+	</body>
+</html>
