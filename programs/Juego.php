@@ -18,8 +18,10 @@
 				if(isset($_POST["num_unidad"]))
 				{	
 					$unidad=$_POST["num_unidad"];
-					$consul=mysqli_query($con,"SELECT * FROM PREGUNTAS WHERE MATERIA_NO='".$materia."'
-					AND UNIDAD_NO='".$unidad."';");
+					$query="SELECT * FROM PREGUNTAS WHERE MATERIA_NO='".$materia."'AND UNIDAD_NO='".$unidad[0]."'";
+					for($i=1;$i<count($unidad);$i++)
+						$query=$query." OR UNIDAD_NO='".$unidad[$i]."'";
+					$consul=mysqli_query($con,$query.';');
 					$numero=mysqli_num_rows($consul);
 					for($n=0;$n<$numero;$n++)
 						$arrPreg[]=mysqli_fetch_assoc($consul);
