@@ -1,9 +1,8 @@
 <?php
 function jugador()
 {
-	echo '<h1>Bienvenido '.$usuario.'</h1>
-		<section>
-			<form>
+	echo '<section>
+			<form action="Juego.php" method="post">
 				<fieldset>
 					<legend>Tipo de juego</legend>
 					<input type="radio" name="modo">Individual</input>
