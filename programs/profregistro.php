@@ -4,6 +4,7 @@
 	$app=mysqli_real_escape_string($conexion,$_POST['app']);
 	$apm=mysqli_real_escape_string($conexion,$_POST['apm']);
 	$cuenta=mysqli_real_escape_string($conexion,$_POST['cuenta']);
+	$s=' ';
 	//revisa si en la base de datos no está la cuenta
 	$nombreQ=mysqli_query($conexion,'SELECT USUARIO_NO,USUARIO_HSP FROM USUARIO WHERE USUARIO_NO="'.$cuenta.'";');
 	function ups() //simple y mortal función, regresa a la página del cordinador
@@ -21,13 +22,12 @@
 	{
 		if(mysqli_num_rows($nombreQ)==0) //si hay 0 registros con ese no. de cuenta...
 		{
+			//inserta en la tabla usuario el número de cuenta y el tipo de usuario que es
 			$insertar=mysqli_query($conexion,'INSERT INTO USUARIO(USUARIO_NO,USUARIO_TIPO) VALUES("'.$cuenta.'","P");');
-			//inserta nombre a DB en profesor
-			$insertnom=mysqli_query($conexion,'INSERT INTO PROFESOR(PROFESOR_NOMBRE) VALUES("'.$nom.'","'.$app.'","'.$apm.'");');
-			//inserta no. de cuenta en profesor
-			$insert=mysqli_query($conexion,'INSERT INTO PROFESOR(USUARIO_NO) VALUES("'.$cuenta.'");');
+			//inserta número de cuenta, nombre, app, apm a la tabla profesor 
+			$insertnom=mysqli_query($conexion,'INSERT INTO PROFESOR(USUARIO_NO,PROFESOR_NOMBRE) VALUES("'.$cuenta.'","'.$nom.$s.$app.$s.$apm.'");');
 			//comprueba que haya insertado a la DB
-			if($insertnom)
+			if($insertnom && $insertar)
 			{
 				echo 'El registro se ha efectuado de manera exitosa para el coordinador: '.$nom;
 				ups();
