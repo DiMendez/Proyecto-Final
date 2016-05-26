@@ -8,17 +8,19 @@ $(document).ready(function(){
         rules: {
             name: { required: true, minlength: 4},
             cuenta: { required: true, digits: true, minlength:9,maxlength:9},
+			grado:{required:true},
 			contra:{ required: true,minlength:8, maxlength:32 },
 			contra2:{required:true, minlength:8, maxlength:32,equalTo:"#contra"},
         },
         messages: {
             name: "Debe introducir su nombre con mínimo cuatro letras.",
             cuenta: "Debe introducir su no.de cuenta, sólo números.",
+			grado:"Es importante que selecciones un grado",
 			contra:"Su contraseña con caracteres especiales, mínimo 8, máximo 32", //mesajes que aparecen si no se cumple con requisitos
 			contra2:"No coincide su contraseña"
         },
         submitHandler: function(form){
-            var dataString = 'name='+$('#name').val()+'&cuenta='+$('#cuenta').val()+'&contra='+$('#contra').val();
+            var dataString = 'name='+$('#name').val()+'&cuenta='+$('#cuenta').val()+'&grado='+$('#grado').val()+'&contra='+$('#contra').val();
             $.ajax({
                 type: "POST",
                 url:"../programs/registro.php",

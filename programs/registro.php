@@ -5,6 +5,7 @@
 	$nombre=$_POST['name'];
 	$cuenta=$_POST['cuenta'];
 	$contra=$_POST['contra'];
+	$grado=$_POST['grado'];
 	$nombreQ=mysqli_query($conexion,'SELECT USUARIO_NO,USUARIO_HSP FROM USUARIO WHERE USUARIO_NO="'.$cuenta.'";');
 	function oh()
 	{
@@ -21,8 +22,10 @@
 			//Por Bruce añadí la condicional que realiza el registro si las filas de la query son 0
 			
 			{
-				//inserta en BD
+				//inserta número de cuenta, contraseña y tipo de usuario en la tabla usuario
 				$insertar=mysqli_query($conexion,'INSERT INTO USUARIO(USUARIO_NO,USUARIO_HSP,USUARIO_TIPO) VALUES("'.$cuenta.'","'.$contra.'","J");');
+				//Inserta en la tabla alumno el nombre, el no. de cuenta y el grado
+				$inalum=mysqli_query($conexion,'INSERT INTO ALUMNO(USUARIO_NO,ALUMNO_NOMBRE,GRADO) VALUES("'.$cuenta.'","'.$nombre.'","'.$grado.'");');
 				if($insertar)
 				{
 					echo'registro concluido exitosamente '.$nombre;
