@@ -7,10 +7,16 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Nombre</title>
+		<link rel="stylesheet" href="../styles/bootstrap.min.css"/>
 	</head>
 	<body>
+		<header>
+			<h1>
+				Bienvenido a RANDOM
+			</h1>
+		</header>
 		<section>
-			<a href="registro.html">Registrarse</a>
+			<a class="btn btn-block btn-default" href="registro.html">Registrarse</a>
 			<form action="../programs/inicio.php" method="POST" id="formulario">
 				<label>Usuario</label><input type="text" name="usuario" id="usuario" required/>
 				<label>Contraseña</label><input type="text" name="contra" id="contra" required/>
@@ -19,5 +25,6 @@
 		</section>
 		<script src="../programs/jquery-2.2.3.js"></script>
 		<script src="../programs/validPrincipalAjax.js"></script>
+		<script src="../styles/bootstrap.min.js"></script>
 	</body>
 </html>
