@@ -9,25 +9,30 @@
 	</head>
 	<body>
 	<?php
-		$con=mysqli_connect("127.0.0.1","root","MOOKAD00","PROFIN");
+		$con=mysqli_connect("127.0.0.1","root","","PROFIN");
 		if($con)
 		{
-			if(isset($_POST["num_mat"]))
+			if(isset($_POST["materia"]))
 			{
-				$materia=$_POST["num_mat"];
-				if(isset($_POST["num_unidad"]))
-				{	
-					$unidad=$_POST["num_unidad"];
-					$query="SELECT * FROM PREGUNTAS WHERE MATERIA_NO='".$materia."'AND UNIDAD_NO='".$unidad[0]."'";
-					for($i=1;$i<count($unidad);$i++)
-						$query=$query." OR UNIDAD_NO='".$unidad[$i]."'";
+				$materia=mysqli_real_escape_string($con,$_POST["materia"]);
+				for($x=1;$x<21;$x++)
+				{
+					$id='unidad-'.$x;
+					if(isset($_POST[$id]))
+						$arrUnidades[]=$_POST[$id];
+				}
+				if(count($arrUnidades)>=1)
+				{
+					$query="SELECT * FROM PREGUNTAS WHERE PREGUNTA_XCONFIRMAR='SI' AND MATERIA_NO='".$materia."' AND UNIDAD_NO='".$arrUnidades[0]."'";
+					for($i=1;$i<count($arrUnidades);$i++)
+						$query=$query." OR UNIDAD_NO='".$arrUnidades[$i]."'";
 					$consul=mysqli_query($con,$query.';');
 					$numero=mysqli_num_rows($consul);
 					for($n=0;$n<$numero;$n++)
 						$arrPreg[]=mysqli_fetch_assoc($consul);
 					$azar=rand(0,$numero-1);
-					$preguntas=$arrPreg[$azar];
-					if($preguntas['PREGUNTA_XCONFIRMAR']=='SI')
+					$pregunta=$arrPreg[$azar];
+					if($pregunta['PREGUNTA_XCONFIRMAR']=='SI')
 					{
 						echo "<div>".$preguntas['PREGUNTA_NOMBRE']."</div>";
 						echo "<button type='button'>".$preguntas['PREGUNTA_OPCION1']."</button><br/>";

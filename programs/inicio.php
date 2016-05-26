@@ -18,7 +18,7 @@ Falta conexión con BD y el contenido que se desplegará-->
 		{
 			$conexion=mysqli_connect("127.0.0.1","root","","PROFIN");
 			$usuario=mysqli_real_escape_string($conexion,$_POST['usuario']);
-			$query='SELECT * FROM USUARIO WHERE USUARIO_NO="'.$usuario.'";';
+			$query='SELECT USUARIO.*,ALUMNO.ALUMNO_NOMBRE FROM USUARIO NATURAL JOIN ALUMNO WHERE USUARIO_NO="'.$usuario.'";';
 			$result=mysqli_query($conexion,$query);
 			
 			if(mysqli_num_rows($result)>0 || $_POST['usuario']=='315294378')	//existe el usuario en la DB
@@ -29,7 +29,7 @@ Falta conexión con BD y el contenido que se desplegará-->
 				if($contra==$resultArray['USUARIO_HSP'] || $_POST['contra']=='hola')
 				{	
 					echo 'Todo bien';
-					//$_SESSION['nombre']=$resultArray['US_NOMBRE'];
+					$_SESSION['nombre']=$resultArray['ALUMNO_NOMBRE'];
 					$_SESSION['tipo']=$resultArray['USUARIO_TIPO'];
 					$_SESSION['usuario']=$resultArray['USUARIO_NO'];
 				}
@@ -43,9 +43,10 @@ Falta conexión con BD y el contenido que se desplegará-->
 		}
 		
 		
-		if(isset($_SESSION['tipo']) && isset($_SESSION['usuario']))	//Quité $_SESSION['nombre']	Falta sacar de BD
+		if(isset($_SESSION['tipo']) && isset($_SESSION['usuario']) && isset($_SESSION['nombre']))	//Quité $_SESSION['nombre']	Falta sacar de BD
 		{
 			include_once "contenido.php";
+			echo '<h1>Bienvenido '.$_SESSION['nombre'].'</h1>';
 			if($_SESSION['tipo']=='J')						
 			{
 				jugador();	//despliega pantalla para el alumno

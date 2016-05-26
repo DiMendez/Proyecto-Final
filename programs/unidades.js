@@ -8,7 +8,7 @@ $("#materia").change(function(){
 		dataType:"text",
 		success:function(data){
 			console.log("ajax funciona");
-			$("#mat-uni").append(data);
+			$("#unidad-field").html(data);
 		}
 	});
 	$(this).append();

@@ -9,8 +9,8 @@ function jugador()
 					<input type="radio" name="modo">Aleatorio</input>
 					<input type="radio" name="modo">Escoger contrincante</input>
 				</fieldset>
-				<fieldset id="mat-uni">
-					<legend>Escoge materia y unidades</legend>';
+				<fieldset id="materia-field">
+					<legend>Escoge materia</legend>';
 					$conexion=mysqli_connect("127.0.0.1","root","","PROFIN");
 					if($conexion)
 					{
@@ -29,6 +29,9 @@ function jugador()
 						echo '</select><br/>';
 					}
 			echo '</fieldset>
+				<fieldset id="unidad-field">
+					<legend>Escoge Unidad</legend>
+				</fieldset>
 				<input type="submit" value="Jugar"/>
 			</form>
 		</section>
@@ -38,7 +41,7 @@ function jugador()
 
 function profesor()
 {
-
+	echo '<section>';
 }
 
 function coordinador()
