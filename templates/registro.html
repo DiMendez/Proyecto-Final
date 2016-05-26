@@ -8,6 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		  <script src="../programs/jquery-1.8.2.min.js"></script>
 		  <script src="../programs/jquery.validate.js"></script>
+		  <script src="../programs/additional-methods.js"></script>
 		  <script src="../programs/registro.js"></script>
 	</head>
 	<body>
@@ -24,7 +25,7 @@
 		</div>-->
 			<form  method="POST" id="formid">
 			<!--Validación comienza desde html-->
-				<label>Nombre de usuario</label><input type="text" name="name" pattern="[A-z\d\s._#]{4,20}" id="name" required/>
+				<label>Nombre de usuario</label><input type="text" name="name" pattern="[A-z\d\s._#\ÁÉÍÓÚáéíó]{4,20}" id="name" required/>
 				<label>Número de cuenta</label><input type="text" name="cuenta"pattern="[\d]{9}" id="cuenta" required/>
 				<label>Grado</label><input type="number" min="4" max="6" name="grado" id="grado"/>
 				<label>Contraseña</label><input type="password" name="contra" id="contra" required/>

@@ -2,10 +2,10 @@
 	
 	$conexion=mysqli_connect('localhost','root','','PROFIN');//Por Bruce: IMPORTANTE si lo van a probar aqui la BD se llama juego
 	//Por Bruce la BD solo contempla el campo de Cuenta y Contraseña(HSP) omitiré $_POST('name') en la querys
-	$nombre=$_POST['name'];
-	$cuenta=$_POST['cuenta'];
-	$contra=$_POST['contra'];
-	$grado=$_POST['grado'];
+	$nombre=mysqli_real_escape_string($conexion,$_POST['name']); //evita inyecciones sql
+	$cuenta=mysqli_real_escape_string($conexion,$_POST['cuenta']);
+	$contra=mysqli_real_escape_string($conexion,$_POST['contra']);
+	$grado=mysqli_real_escape_string($conexion,$_POST['grado']);
 	$nombreQ=mysqli_query($conexion,'SELECT USUARIO_NO,USUARIO_HSP FROM USUARIO WHERE USUARIO_NO="'.$cuenta.'";');
 	function oh()
 	{
@@ -14,7 +14,7 @@
 			return;
 	}
 	//Aquí va otra validación porque #Angie dijo que nunca sobran validaciones
-		$a=((preg_match('/^[A-z\d_]{4,28}$/i', $nombre)))?true:false;
+		$a=((preg_match('/^[A-z\d\ÁÉÍÓÚáéíó]{4,28}$/i', $nombre)))?true:false;
 		$b=((preg_match('/^[0-9]{6,9}$/', $cuenta)))?true:false;
 		if(($a && $b))
 		{
@@ -28,8 +28,8 @@
 				$inalum=mysqli_query($conexion,'INSERT INTO ALUMNO(USUARIO_NO,ALUMNO_NOMBRE,GRADO) VALUES("'.$cuenta.'","'.$nombre.'","'.$grado.'");');
 				if($insertar)
 				{
-					echo'registro concluido exitosamente '.$nombre;
-					echo'<br/><a href="principal.html">Ingresar</a>';
+					echo'Registro concluido exitosamente, '.$nombre;
+					echo'<br/><a href="principal.html">Ingresar</a>'; //Lo regresa a la página principal, para mayor seguridad
 				}
 				else 
 					echo 'Algo falló con el registro,no se concluyó';
