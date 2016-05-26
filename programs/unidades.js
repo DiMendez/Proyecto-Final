@@ -1,0 +1,14 @@
+$("#materia").change(function(){
+	$.ajax({
+		url:"../programs/unidades.php",
+		data:{
+			materia:$("#materia").val()
+		},
+		type:"POST",
+		dataType:"text",
+		success:function(data){
+			$(this).parent().append(data);
+		}
+	});
+	$(this).append();
+});
