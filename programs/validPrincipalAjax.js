@@ -1,7 +1,7 @@
 /*Por Kevin. Valida los datos de inicio de sesión. Falta checar regex*/
 
 var expregU=new RegExp("^[0-9]{6,9}$");
-var expregC=new RegExp("^[a-z]{2,10}$");		//insertar regex de la contraseña
+var expregC=new RegExp("^[a-z0-9]{2,10}$");		//insertar regex de la contraseña
 
 //estas dos funciones change habilitan o deshabilitan el boton de submit
 $("#usuario").change(function(){
