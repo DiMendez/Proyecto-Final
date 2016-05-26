@@ -21,7 +21,7 @@
 	{
 		if(mysqli_num_rows($nombreQ)==0) //si hay 0 registros con ese no. de cuenta...
 		{
-			$insertar=mysqli_query($conexion,'INSERT INTO USUARIO(USUARIO_NO,USUARIO_TIPO) VALUES("'.$cuenta.'","P");');
+			$insertar=mysqli_query($conexion,'INSERT INTO USUARIO(USUARIO_NO,USUARIO_TIPO) VALUES("'.$cuenta.'","C");');
 			//inserta nombre a DB en profesor
 			$insertnom=mysqli_query($conexion,'INSERT INTO PROFESOR(PROFESOR_NOMBRE) VALUES("'.$nom.'","'.$app.'","'.$apm.'");');
 			//inserta no. de cuenta en profesor
