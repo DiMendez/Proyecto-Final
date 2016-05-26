@@ -8,8 +8,8 @@ $(document).ready(function(){
 			cuenta:{required:true, minlength:6, maxlength:6,digits:true},
         },
         messages: {
-            nom: "Debe introducir su nombre con mínimo cuatro letras.",
-            app: "Debe introducir apellido con mínimo cuatro letras.",
+            nom: "Debe introducir su nombre con mínimo cuatro letras sin acentos o caracteres especiales.",
+            app: "Debe introducir apellido con mínimo cuatro letras sin acentos o caracteres especiales.",
 			apm:"Debe introducir apellido válido",
 			cuenta:"Debe de ser una cuenta con seis números",
         },
