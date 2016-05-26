@@ -25,14 +25,15 @@
 						$arrPreg[]=mysqli_fetch_assoc($consul);
 					$azar=rand(0,$numero-1);
 					$preguntas=$arrPreg[$azar];
-					echo "<div>".$preguntas['PREGUNTA_NOMBRE']."</div>";
-					echo "<button type='button'>".$preguntas['PREGUNTA_OPCION1']."</button><br/>";
-					echo "<button type='button'>".$preguntas['PREGUNTA_OPCION2']."</button><br/>";
-					echo "<button type='button'>".$preguntas['PREGUNTA_OPCION3']."</button><br/>";
-					echo "<button type='button' id='cuatro'>".$preguntas['PREGUNTA_OPCION4']."</button><br/>";
-					echo "<p id='pe'>".$preguntas['PREGUNTA_RESPUESTA']."</p><br/>";
-					
-					
+					if($preguntas['PREGUNTA_XCONFIRMAR']=='SI')
+					{
+						echo "<div>".$preguntas['PREGUNTA_NOMBRE']."</div>";
+						echo "<button type='button'>".$preguntas['PREGUNTA_OPCION1']."</button><br/>";
+						echo "<button type='button'>".$preguntas['PREGUNTA_OPCION2']."</button><br/>";
+						echo "<button type='button'>".$preguntas['PREGUNTA_OPCION3']."</button><br/>";
+						echo "<button type='button' id='cuatro'>".$preguntas['PREGUNTA_OPCION4']."</button><br/>";
+						echo "<p id='pe'>".$preguntas['PREGUNTA_RESPUESTA']."</p><br/>";
+					}				
 				}
 				else
 					echo'¿Pero de cuál unidad?';
