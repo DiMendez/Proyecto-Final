@@ -25,17 +25,17 @@ Falta conexión con BD y el contenido que se desplegará-->
 			{
 				echo 'usuario bien';
 				$resultArray=mysqli_fetch_assoc($result);
-				$contra=mysqli_real_escape_string($conexion,$_POST['contra']);	//implementar hash?
+				//$contra=mysqli_real_escape_string($conexion,$_POST['contra']);	//implementar hash?
+				$contra=$_POST['contra'];
 				if($contra==$resultArray['USUARIO_HSP'] || $_POST['contra']=='hola')
 				//if($_POST['contra']=='hola')
 				{	
-					include_once "contenido.php";
 					echo 'Todo bien';					//IDEA: Aquí creas las variables de sesión y más abajo pones lo demás
-					$tipo=$resultArray['US_TIPO'];
+					//$tipo=$resultArray['USUARIO_TIPO'];
 					session_start();
-					$_SESSION['nombre']=$resultArray['US_NOMBRE'];
-					$_SESSION['tipo']=$tipo;
-					$_SESSION['usuario']=$resultArray['US_NUM'];
+					//$_SESSION['nombre']=$resultArray['US_NOMBRE'];
+					$_SESSION['tipo']=$resultArray['USUARIO_TIPO'];
+					$_SESSION['usuario']=$resultArray['USUARIO_NO'];
 					
 					/*if($tipo=='J')						//esto se comentaria
 					{
@@ -55,36 +55,37 @@ Falta conexión con BD y el contenido que se desplegará-->
 					}*/
 				}
 				else
-					echo '<p>Contraseña incorrecta</p><a href="principal.html">Página Principal</a>';
+					echo '<p>Contraseña incorrecta</p><a href="../templates/principal.html">Página Principal</a>';
 			}
 			else
-				echo '</p>Ese usuario no existe</p><a href="principal.html">Página Principal</a>';
+				echo '</p>Ese usuario no existe</p><a href="../templates/principal.html">Página Principal</a>';
 			
 			mysqli_close($conexion);
 		}
 		/*else
-			echo '<p>Inicia sesión</p><a href="principal.html">Página Principal</a>';	//esto se comenta*/
-		if(isset($_SESSION['nombre']) && isset($_SESSION['tipo']) && isset($_SESSION['usuario']))
+			echo '<p>Inicia sesión</p><a href="../templates/principal.html">Página Principal</a>';	//esto se comenta*/
+		if(isset($_SESSION['tipo']) && isset($_SESSION['usuario']))	//Quité $_SESSION['nombre']	Falta sacar de BD
 		{
-			if($_SESSION['TIPO']=='J')						
+			include_once "contenido.php";
+			if($_SESSION['tipo']=='J')						
 			{
 				jugador();	//despliega pantalla para el alumno
 			}
-			else if($tipo=='P')
+			else if($_SESSION['tipo']=='P')
 			{
 				profesor();	//despliega pantalla para el profesor
 			}
-			else if($tipo=='C')
+			else if($_SESSION['tipo']=='C')
 			{
 				coordinador();	//despliega pantalla para el coordinador
 			}
-			else if($tipo=='A')
+			else if($_SESSION['tipo']=='A')
 			{
 				administrador();	//despliega pantalla para el administrador
 			}
 		}
 		else
-			echo '<p>Inicia sesión</p><a href="principal.html">Página Principal</a>';
+			echo '<p>Inicia sesión</p><a href="../templates/principal.html">Página Principal</a>';
 		?>
 	</body>
 </html>

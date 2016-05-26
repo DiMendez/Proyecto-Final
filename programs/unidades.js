@@ -7,7 +7,8 @@ $("#materia").change(function(){
 		type:"POST",
 		dataType:"text",
 		success:function(data){
-			$(this).parent().append(data);
+			console.log("ajax funciona");
+			$("#mat-uni").append(data);
 		}
 	});
 	$(this).append();
