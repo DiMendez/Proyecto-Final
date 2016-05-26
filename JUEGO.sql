@@ -25,7 +25,7 @@ CREATE TABLE MATERIAS
 (
 	MATERIA_NO char(4),
 	GRADO varchar(3),
-	COLEGIO_NO int,
+	COLEGIO_NOMBRE varchar(50),
 	MATERIA_NOMBRE varchar(25),
 	PRIMARY KEY (MATERIA_NO)
 );
@@ -87,3 +87,25 @@ SELECT GRADO GRADO FROM ALUMNO NATURAL JOIN MATERIAS;
 SELECT MATERIA_NO MATERIA_NO FROM MATERIAS NATURAL JOIN UNIDAD;
 SELECT MATERIA_NO MATERIA_NO FROM PREGUNTAS NATURAL JOIN UNIDAD;
 SELECT UNIDAD_NO UNIDAD_NO FROM PREGUNTAS NATURAL JOIN UNIDAD;
+
+INSERT INTO MATERIAS VALUES('1400','4','Matemáticas','Matemáticas IV');
+INSERT INTO MATERIAS VALUES('1500','5','Matemáticas','Matemáticas V');
+INSERT INTO UNIDAD VALUES('1400','1','Conjuntos');
+INSERT INTO UNIDAD VALUES('1400','2','Sistemas de numeración');
+INSERT INTO UNIDAD VALUES('1400','3','El campo de los números reales');
+INSERT INTO UNIDAD VALUES('1400','4','Operaciones con monomios y polnomios');
+INSERT INTO UNIDAD VALUES('1400','5','Productos notables y factorización');
+INSERT INTO UNIDAD VALUES('1400','6','Operaciones con fracciones y redicales');
+INSERT INTO UNIDAD VALUES('1400','7','Ecuaciones y desigualdades');
+INSERT INTO UNIDAD VALUES('1400','8','Sistemas de ecuaciones y desigualdades');
+INSERT INTO UNIDAD VALUES('1500','1','Relaciones y funciones');
+INSERT INTO UNIDAD VALUES('1500','2','Funciones trigonométricas');
+INSERT INTO UNIDAD VALUES('1500','3','Funciones exponenciales y logarítmicas');
+INSERT INTO UNIDAD VALUES('1500','4','Sistemas de coordenadas y algunos conceptos básicos');
+INSERT INTO UNIDAD VALUES('1500','5','Discusión de ecuaciones algebráicas');
+INSERT INTO UNIDAD VALUES('1500','6','Ecuación de primer grado');
+INSERT INTO UNIDAD VALUES('1500','7','Ecuación general de segundo grado');
+INSERT INTO UNIDAD VALUES('1500','8','Circunferencia');
+INSERT INTO UNIDAD VALUES('1500','9','Parábola');
+INSERT INTO UNIDAD VALUES('1500','10','Elipse');
+INSERT INTO UNIDAD VALUES('1500','11','Hipérbola');
