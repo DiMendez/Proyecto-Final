@@ -26,12 +26,12 @@ Falta conexión con BD y el contenido que se desplegará-->
 			
 			if(mysqli_num_rows($result)>0 || $_POST['usuario']=='315294378')	//existe el usuario en la DB
 			{
-				echo 'usuario bien';
+				
 				$resultArray=mysqli_fetch_assoc($result);		
 				$contra=$_POST['contra'];												//implementar hash?
 				if($contra==$resultArray['USUARIO_HSP'] || $_POST['contra']=='hola')
 				{	
-					echo 'Todo bien';
+					
 					$_SESSION['nombre']=$resultArray['ALUMNO_NOMBRE'];
 					$_SESSION['tipo']=$resultArray['USUARIO_TIPO'];
 					$_SESSION['usuario']=$resultArray['USUARIO_NO'];
