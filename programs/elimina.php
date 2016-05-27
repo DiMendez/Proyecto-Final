@@ -27,6 +27,22 @@
 					else
 						echo'Ah no';
 				}
+
+			}
+			$qa="SELECT PREGUNTA_NOMBRE FROM PREGUNTAS WHERE PREGUNTA_XCONFIRMAR='NO';";
+			$ca=mysqli_query($con,$qa);
+			$na=mysqli_num_rows($ca);
+			for($i=0;$i<$na;$i++)
+			{
+				$yapasa[]=mysqli_fetch_assoc($ca);
+				$si=$yapasa[$i];
+				$nom="UPDATE PREGUNTAS SET PREGUNTA_XCONFIRMAR='SI' WHERE PREGUNTA_NOMBRE='".$si['PREGUNTA_NOMBRE']."';";
+				echo $nom;
+				$arregla=mysqli_query($con,$nom);
+				if($arregla)
+					echo'Success';
+				else
+					echo'No pus no';
 			}
 		}
 	?>
