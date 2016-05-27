@@ -9,20 +9,24 @@
 	</head>
 	<body>
 	<?php
-		$con=mysqli_connect("127.0.0.1","root","","PROFIN");
-		if($con)
+		session_name('actual');
+		session_start();
+		if(isset($_SESSION['tipo']) && isset$_SESSION['usuario'])
 		{
+			
 			if(isset($_POST["materia"]))
 			{
-				$materia=mysqli_real_escape_string($con,$_POST["materia"]);
 				for($x=1;$x<21;$x++)
 				{
 					$id='unidad-'.$x;
 					if(isset($_POST[$id]))
 						$arrUnidades[]=$_POST[$id];
 				}
+		
 				if(count($arrUnidades)>=1)
 				{
+					$con=mysqli_connect("127.0.0.1","root","","PROFIN");
+					$materia=mysqli_real_escape_string($con,$_POST["materia"]);
 					$query="SELECT * FROM PREGUNTAS WHERE PREGUNTA_XCONFIRMAR='SI' AND MATERIA_NO='".$materia."' AND UNIDAD_NO='".$arrUnidades[0]."'";
 					for($i=1;$i<count($arrUnidades);$i++)
 						$query=$query." OR UNIDAD_NO='".$arrUnidades[$i]."'";
@@ -30,6 +34,9 @@
 					$numero=mysqli_num_rows($consul);
 					for($n=0;$n<$numero;$n++)
 						$arrPreg[]=mysqli_fetch_assoc($consul);
+					
+					
+					
 					$azar=rand(0,$numero-1);
 					$pregunta=$arrPreg[$azar];
 					echo "<div>".$pregunta['PREGUNTA_NOMBRE']."</div>
@@ -41,13 +48,13 @@
 					<p id='pe'>".$pregunta['PREGUNTA_RESPUESTA']."</p><br/>";			
 				}
 				else
-					echo'¿Pero de cuál unidad?';
+					echo'<p>¿Pero de cuál unidad?</p><br/><a href="inicio.php">Regresar</a>';
 			}
 			else
-				echo'¿De cuál materia?';
+				echo '<p>¿De cuál materia?</p><a href="inicio.php">Regresar</a>';
 		}
 		else
-			echo'Error de conexión';
+			echo '<p>Inicia sesión</p><a href="../templates/principal.html">Página Principal</a>';
 	?>
 	<script>
 		$("#pregunta").submit=function(){
