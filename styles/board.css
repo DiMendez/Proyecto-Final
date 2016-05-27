@@ -32,3 +32,8 @@ fieldset
 {
 	border:none;
 }
+.modal-content
+{
+	background-color:rgba(220,220,220,0.5);
+	color:black;
+}

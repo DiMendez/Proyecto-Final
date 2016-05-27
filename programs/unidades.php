@@ -11,7 +11,10 @@ if(isset($_POST['materia']))
 		$resultArray=mysqli_fetch_assoc($result);
 		$numero=$resultArray["UNIDAD_NO"];
 		$nombre=$resultArray["UNIDAD_NOMBRE"];
-		$nuevo='<label>'.$numero.'.- '.$nombre.'</label><input type="checkbox" name="unidad-'.$y.'" value="'.$numero.'"/><br/>';
+		$nuevo='<div class="form-group"><label>'.$numero.'.- '.$nombre.'
+													</label>
+														<input type="checkbox" name="unidad-'.$y.'" value="'.$numero.'"/>
+													<';
 		$html=$html.$nuevo;
 	}
 	mysqli_close($conexion);
