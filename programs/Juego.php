@@ -32,15 +32,13 @@
 						$arrPreg[]=mysqli_fetch_assoc($consul);
 					$azar=rand(0,$numero-1);
 					$pregunta=$arrPreg[$azar];
-					if($pregunta['PREGUNTA_XCONFIRMAR']=='SI')
-					{
-						echo "<div>".$preguntas['PREGUNTA_NOMBRE']."</div>";
-						echo "<button type='button'>".$preguntas['PREGUNTA_OPCION1']."</button><br/>";
-						echo "<button type='button'>".$preguntas['PREGUNTA_OPCION2']."</button><br/>";
-						echo "<button type='button'>".$preguntas['PREGUNTA_OPCION3']."</button><br/>";
-						echo "<button type='button' id='cuatro'>".$preguntas['PREGUNTA_OPCION4']."</button><br/>";
-						echo "<p id='pe'>".$preguntas['PREGUNTA_RESPUESTA']."</p><br/>";
-					}				
+					echo "<div>".$pregunta['PREGUNTA_NOMBRE']."</div>
+					<form id='pregunta'>
+					<input type='submit' id='1' value='".$pregunta['PREGUNTA_OPCION1']."'/><br/>
+					<input type='submit' id='2' value='".$pregunta['PREGUNTA_OPCION2']."'/><br/>
+					<input type='submit' id='3' value='".$pregunta['PREGUNTA_OPCION3']."'/><br/>
+					<input type='submit' id='4' value='".$pregunta['PREGUNTA_OPCION4']."'/><br/>
+					<p id='pe'>".$pregunta['PREGUNTA_RESPUESTA']."</p><br/>";			
 				}
 				else
 					echo'¿Pero de cuál unidad?';
@@ -52,9 +50,9 @@
 			echo'Error de conexión';
 	?>
 	<script>
-		$("#cuatro").click=function(){
-			if($(this).val()==$("#pe").val())
-			alert('OK');
+		$("#pregunta").submit=function(){
+			if($(this).attr("id")==$("#pe").val())
+				alert('OK');
 		};
 	</script>
 	</body>
