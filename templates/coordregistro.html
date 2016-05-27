@@ -18,8 +18,10 @@
 				<label>Nombre</label><input type="text" name="nom" id="nom" pattern="[A-z\s]{4,20}" required/>
 				<label>Apellido paterno</label><input type="text" id="app"name="app"pattern="[A-z\s]{4,20}"required/>
 				<label>Apellido materno</label><input type="text"name="apm" id="apm"pattern="[A-z\s]{4,20}"required/>
-				<!--No pongo contraseña, que el sistema le mande una aleatoria y que tenga oportunidad de cambiarla después-->
 				<label>Cuenta</label><input type="text" name="cuenta" id="cuenta"pattern="[\d]{6}" required/>	
+				<label>Contraseña</label><input type="password" name="contra" id="contra" required/>
+				<label>Compruebe contraseña</label><input type="password" name="contra2" id="contra2" required/>
+				<p><span></span>
 				<input type="submit" value="Registrar"/>
 			</form>
 		</section>

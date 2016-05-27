@@ -16,7 +16,8 @@
 	//Aquí va otra validación porque #Angie dijo que nunca sobran validaciones
 		$a=((preg_match('/^[A-z\d\ÁÉÍÓÚáéíó]{4,28}$/i', $nombre)))?true:false;
 		$b=((preg_match('/^[0-9]{9}$/', $cuenta)))?true:false;
-		if(($a && $b))
+		$c=((preg_match('/^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/i' ,$contra)))?true:false;
+		if(($a && $b &&$c))
 		{
 			if(mysqli_num_rows($nombreQ)==0) 
 			//Por Bruce añadí la condicional que realiza el registro si las filas de la query son 0
