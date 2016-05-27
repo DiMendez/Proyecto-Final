@@ -2,10 +2,18 @@
 function jugador()
 {
 	echo '<section class="container">
-			<button class="btn btn-large" data-toggle="modal" data-target="#elmodal">
+			<button class="btn btn-large btn-block btn-success" data-toggle="modal" data-target="#elmodal">
+				PLAY
+			</button>
+			<button class="btn btn-block btn-info">
+				Cambiar estilo
 			</button>';
-	echo'<div class="modal fade" role="dialog"><form id="escoger" action="Juego.php" method="POST">
-					<fieldset class="form-horizontal">
+	echo'<div class="modal fade" id="elmodal"role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-body">
+				<form  class="form-horizontal" id="escoger" action="Juego.php" method="POST">
+					<fieldset>
 						<legend>Tipo de juego</legend>
 						<input type="radio" name="modo">Individual</input>
 						<input type="radio" name="modo">Aleatorio</input>
@@ -35,7 +43,11 @@ function jugador()
 						<legend>Escoge Unidad</legend>
 					</fieldset>
 					<input class="btn btn-success btn-block"type="submit" value="Jugar"/>
-				</form>';
+				</form>
+				</div>
+				</div>
+				</div>
+				</div>';
 	echo '</section>
 		<script src="../programs/jquery-2.2.3.js"></script>
 		<script src="../programs/unidades.js"></script>';
@@ -57,8 +69,21 @@ function coordinador()
 
 function administrador()
 {
-	echo '<section>
-	
-	</section>';
+	echo '<header class="container">
+			<div class="row">
+				<h1 class="col-xs text-center">
+					Bienvenid@ Administrador(a)
+				</h1>
+			</div>
+		</header>
+		<section>
+			<div>
+				<ul>
+					<li><a href="coordregistro.html">Añadir coordinadores</a></li>
+					<li><a href="#">Acceso a información de usuarios</a></li>
+					<li><a href="#">Estadísticas de uso mensual del sistema</a></li>
+				</ul>
+			</div>
+		</section>';
 }	
 ?>
