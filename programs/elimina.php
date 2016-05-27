@@ -12,7 +12,7 @@
 		$con=mysqli_connect("127.0.0.1","root","MOOKAD00","PROFIN");
 		if($con)
 		{
-			$q="SELECT * FROM PREGUNTAS WHERE PREGUNTA_XCONFIRMAR='NO';";
+			$q="SELECT PREGUNTA_NOMBRE FROM PREGUNTAS WHERE PREGUNTA_XCONFIRMAR='NO';";
 			$c=mysqli_query($con,$q);
 			$n=mysqli_num_rows($c);
 			for($i=0;$i<$n;$i++)
@@ -20,7 +20,7 @@
 				if(isset($_POST['pregsi'.$i]))
 				{
 					$borra=$_POST['pregsi'.$i];
-					$query="DELETE FROM PREGUNTAS WHERE PREGUNTA_NOMBRE='".$borra."';";
+					$query="DELETE FROM PREGUNTAS WHERE PREGUNTA_NOMBRE='".$borra."' AND PREGUNTA_XCONFIRMAR='NO';";
 					$consul=mysqli_query($con,$query);
 					if($consul)
 						echo'Elimindada';
@@ -29,21 +29,20 @@
 				}
 
 			}
-			$qa="SELECT PREGUNTA_NOMBRE FROM PREGUNTAS WHERE PREGUNTA_XCONFIRMAR='NO';";
-			$ca=mysqli_query($con,$qa);
+			$ca=mysqli_query($con,$q);
 			$na=mysqli_num_rows($ca);
 			for($i=0;$i<$na;$i++)
 			{
 				$yapasa[]=mysqli_fetch_assoc($ca);
 				$si=$yapasa[$i];
 				$nom="UPDATE PREGUNTAS SET PREGUNTA_XCONFIRMAR='SI' WHERE PREGUNTA_NOMBRE='".$si['PREGUNTA_NOMBRE']."';";
-				echo $nom;
 				$arregla=mysqli_query($con,$nom);
 				if($arregla)
 					echo'Success';
 				else
 					echo'No pus no';
 			}
+			mysqli_close($con);
 		}
 	?>
 	<script>
