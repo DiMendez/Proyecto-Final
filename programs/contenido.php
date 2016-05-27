@@ -2,7 +2,7 @@
 function jugador()
 {
 	echo '<section>';
-	echo'<form id="escoger">
+	echo'<form id="escoger" action="Juego.php" method="POST">
 					<fieldset>
 						<legend>Tipo de juego</legend>
 						<input type="radio" name="modo">Individual</input>

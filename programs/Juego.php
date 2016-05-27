@@ -4,33 +4,40 @@
 		<meta charset="utf-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="viewpiort" content="width=device-width, initial-scale=1"/>
-		<script src="jquery-2.2.3.js"></script>
 		<title>Seguridad</title>
+		<script src="../programs/jquery-2.2.3.js"></script>
 	</head>
 	<body>
-		<section id="juego">
+		
 			<?php
 			session_name('actual');
 			session_start();
-			if(isset($_SESSION['tipo']) && isset$_SESSION['usuario'])
+			if(isset($_SESSION['tipo']) && isset($_SESSION['usuario']))
 			{
 				if(isset($_POST["materia"]))
 				{
-					$unidades='';
-					for($x=1;$x<21;$x++)
+					if(isset($_POST['unidades']))
+						$unidades=$_POST['unidades'];
+					else
 					{
-						$id='unidad-'.$x;
-						if(isset($_POST[$id]))
-							$unidades=$unidades.$_POST[$id].' ';
+						$unidades='';
+						for($x=1;$x<21;$x++)
+						{
+							$id='unidad-'.$x;
+							if(isset($_POST[$id]))
+								$unidades=$unidades.$_POST[$id].' ';
+						}
 					}
-					
 					if(count(explode(' ',$unidades))>=1)
 					{
-						echo '<form id="empezar">
+						echo '
+						<section id="juego">
+						<form method="post" action="cerrar.php">
 							<input type="hidden" name="materia" id="mat-ronda" value="'.$_POST["materia"].'"/>
 							<input type="hidden" name="unidades" id="uni-ronda" value="'.$unidades.'"/>
-							<input type="submit" value="Empezar"/>
-						</form>';
+							<input type="submit" value="Empezar" id="empezar"/>
+						</form>
+						</section>';
 					}
 					else
 						echo'<p>¿Pero de cuál unidad?</p><br/><a href="inicio.php">Regresar</a>';
@@ -41,7 +48,7 @@
 			else
 				echo '<p>Inicia sesión</p><a href="../templates/principal.html">Página Principal</a>';
 			?>
-		</section>
+		
 		
 		<script src="../programs/jquery-2.2.3.js"></script>
 		<script src="../programs/juego.js"></script>

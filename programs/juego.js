@@ -1,5 +1,5 @@
-$("#escoger").submit(function(e){
-	e.preventDefault();
+$("#empezar").click(function(event){
+	event.preventDefault();
 	$.ajax({
 		url:"../programs/juegoAjax.php",
 		data:{
@@ -15,21 +15,21 @@ $("#escoger").submit(function(e){
 	});
 });
 
-$("#pregunta").submit(function(e){
-	e.preventDefault();
+$("#pregunta").click(function(event){
+	event.preventDefault();
 	$.ajax({
 		url:'../programs/juegoAjax.php',
 		type:"post",
 		dataType:"text",
 		data:{
-			respAct:$("input[name:opciones]")
+			respAct:$("input:radio[name=opciones]:checked").val(),
 			materia:$("#mat-ronda").val(),
 			unidades:$("#uni-ronda").val(),
 			respuesta:$("#resp-c").val(),
 			
 		},
 		success:function(data){
-			
+			$("#juego").html(data);
 		}
 	});
 });

@@ -13,28 +13,36 @@ if(isset($_POST['materia']) && isset($_POST['unidades']))
 	$numero=mysqli_num_rows($consul);
 	for($n=0;$n<$numero;$n++)
 		$arrPreg[]=mysqli_fetch_assoc($consul);
-	if(isset($_POST['']) && isset(['']))
+	
+	if(isset($_POST['respAct']) && isset($_POST['respuesta']))
 	{
-		
+		if($_POST['respuesta']==$_POST['respAct'])
+			$buena=true;
+		else
+			$buena=false;
 	}
+	else
+		$buena=true;
 	
 	if($buena===true)
 	{
 		$azar=rand(0,$numero-1);
 		$pregunta=$arrPreg[$azar];
 		echo "<div>".$pregunta['PREGUNTA_NOMBRE']."</div>
-		<form id='pregunta'>
+		<form method='post' action='cerrar.php'>
 			<input type='radio' name='opciones' value='1'/>".$pregunta['PREGUNTA_OPCION1']."<br/>
 			<input type='radio' name='opciones' value='2'/>".$pregunta['PREGUNTA_OPCION2']."<br/>
 			<input type='radio' name='opciones' value='3'/>".$pregunta['PREGUNTA_OPCION3']."<br/>
 			<input type='radio' name='opciones' value='4'/>".$pregunta['PREGUNTA_OPCION4']."<br/>
-			<input type='submit' value='Prueba'/><br/>
 			<input type='hidden' name='respuesta' id='resp-c' value='".$pregunta['PREGUNTA_RESPUESTA']."'/>
 			<input type='hidden' name='materia' id='mat-ronda' value='".$materia."'/>
 			<input type='hidden' name='unidades' id='uni-ronda' value='".$_POST['unidades']."'/>
-			
-		</form>";
+			<input type='submit' value='Enviar' id='pregunta'/>
+		</form>
+		<script src='../programs/juego.js'></script>";
 	}
+	else
+		echo '<p>Perdiste</p><a href="../programs/inicio.php">Regresar a inicio</a>';
 }
 else
 	echo '<p>Hubo un error</p><a href="inicio.php">Regresa</a>';
