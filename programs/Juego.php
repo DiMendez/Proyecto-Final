@@ -28,7 +28,8 @@
 								$unidades=$unidades.$_POST[$id].' ';
 						}
 					}
-					if(count(explode(' ',$unidades))>=1)
+					$arrUnidades=explode(' ',$unidades);
+					if(count($arrUnidades)>=1 && $arrUnidades[0]!='')
 					{
 						echo '
 						<section id="juego">
