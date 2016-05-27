@@ -20,8 +20,10 @@
 				$nconsul=mysqli_num_rows($consul);
 				$nconsul2=mysqli_num_rows($consul2);
 				$numero=$nconsul+$nconsul2;
+				var_dump($nconsul2);
 				echo'<div>
-					<form action="eliminausu.php" method="POST">
+					<form action="eliminiausu.php" method="POST">
+						PROFESORES
 						<table>
 							<tr>
 								<td>USUARIO </td>
@@ -32,21 +34,26 @@
 						{
 							$pro[]=mysqli_fetch_assoc($consul);
 							$profs=$pro[$n];
-							$fech=$profs["PROFESOR_FECHA"]-$dat;
-							var_dump($fech);
-							if($fech>300)
-							{
-								echo'<tr>
-									<td>'.$profs["PROFESOR_NOMBRE"].'</td>
-									<td><input type="checkbox" name="pregsi'.$n.'"
-									value="'.$profs["PROFESOR_NO"].'"/></td>
-								</tr>';
-							}
+							echo'<tr>
+								<td>'.$profs["PROFESOR_NOMBRE"].'</td>
+								<td>'.$profs["PROFESOR_FECHA"].'</td>
+								<td><input type="checkbox" name="pregsi'.$n.'"
+								value="'.$profs["USUARIO_NO"].'"/></td>
+							</tr>';
 						}
+						echo'</table>
+						ALUMNOS
+						<table>
+							<tr>
+								<td>USUARIO </td>
+								<td>ÚLTIMA FECHA DE ENTRADA </td>
+								<td>¿ELIMINAR?</td>
+							</tr>';
 						for($n=$nconsul;$n<$numero;$n++)
 						{
+							var_dump($n);
 							$al[]=mysqli_fetch_assoc($consul2);
-							$alumn=$al[$n];
+							$alumn=$al[$n-$nconsul];
 							/*$fa=strtotime($alumn["ALUMNO_FECHA"]);
 							$fa2=strtotime($dat);
 							$fech2=$fa2-$fa1;
@@ -63,7 +70,7 @@
 								<td>'.$alumn["ALUMNO_NOMBRE"].'</td>
 								<td>'.$alumn["ALUMNO_FECHA"].'</td>
 								<td><input type="checkbox" name="pregsi'.$n.'"
-								value="'.$alumn["ALUMNO_NO"].'"/></td>
+								value="'.$alumn["USUARIO_NO"].'"/></td>
 							</tr>';
 							
 						}
