@@ -11,5 +11,4 @@ $("#materia").change(function(){
 			$("#unidad-field").html(data);
 		}
 	});
-	$(this).append();
 });

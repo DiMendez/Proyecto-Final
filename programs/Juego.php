@@ -8,59 +8,42 @@
 		<title>Seguridad</title>
 	</head>
 	<body>
-	<?php
-		session_name('actual');
-		session_start();
-		if(isset($_SESSION['tipo']) && isset$_SESSION['usuario'])
-		{
-			
-			if(isset($_POST["materia"]))
+		<section id="juego">
+			<?php
+			session_name('actual');
+			session_start();
+			if(isset($_SESSION['tipo']) && isset$_SESSION['usuario'])
 			{
-				for($x=1;$x<21;$x++)
+				if(isset($_POST["materia"]))
 				{
-					$id='unidad-'.$x;
-					if(isset($_POST[$id]))
-						$arrUnidades[]=$_POST[$id];
-				}
-		
-				if(count($arrUnidades)>=1)
-				{
-					$con=mysqli_connect("127.0.0.1","root","","PROFIN");
-					$materia=mysqli_real_escape_string($con,$_POST["materia"]);
-					$query="SELECT * FROM PREGUNTAS WHERE PREGUNTA_XCONFIRMAR='SI' AND MATERIA_NO='".$materia."' AND UNIDAD_NO='".$arrUnidades[0]."'";
-					for($i=1;$i<count($arrUnidades);$i++)
-						$query=$query." OR UNIDAD_NO='".$arrUnidades[$i]."'";
-					$consul=mysqli_query($con,$query.';');
-					$numero=mysqli_num_rows($consul);
-					for($n=0;$n<$numero;$n++)
-						$arrPreg[]=mysqli_fetch_assoc($consul);
+					$unidades='';
+					for($x=1;$x<21;$x++)
+					{
+						$id='unidad-'.$x;
+						if(isset($_POST[$id]))
+							$unidades=$unidades.$_POST[$id].' ';
+					}
 					
-					
-					
-					$azar=rand(0,$numero-1);
-					$pregunta=$arrPreg[$azar];
-					echo "<div>".$pregunta['PREGUNTA_NOMBRE']."</div>
-					<form id='pregunta'>
-					<input type='submit' id='1' value='".$pregunta['PREGUNTA_OPCION1']."'/><br/>
-					<input type='submit' id='2' value='".$pregunta['PREGUNTA_OPCION2']."'/><br/>
-					<input type='submit' id='3' value='".$pregunta['PREGUNTA_OPCION3']."'/><br/>
-					<input type='submit' id='4' value='".$pregunta['PREGUNTA_OPCION4']."'/><br/>
-					<p id='pe'>".$pregunta['PREGUNTA_RESPUESTA']."</p><br/>";			
+					if(count(explode(' ',$unidades))>=1)
+					{
+						echo '<form id="empezar">
+							<input type="hidden" name="materia" id="mat-ronda" value="'.$_POST["materia"].'"/>
+							<input type="hidden" name="unidades" id="uni-ronda" value="'.$unidades.'"/>
+							<input type="submit" value="Empezar"/>
+						</form>';
+					}
+					else
+						echo'<p>¿Pero de cuál unidad?</p><br/><a href="inicio.php">Regresar</a>';
 				}
 				else
-					echo'<p>¿Pero de cuál unidad?</p><br/><a href="inicio.php">Regresar</a>';
+					echo '<p>¿De cuál materia?</p><a href="inicio.php">Regresar</a>';
 			}
 			else
-				echo '<p>¿De cuál materia?</p><a href="inicio.php">Regresar</a>';
-		}
-		else
-			echo '<p>Inicia sesión</p><a href="../templates/principal.html">Página Principal</a>';
-	?>
-	<script>
-		$("#pregunta").submit=function(){
-			if($(this).attr("id")==$("#pe").val())
-				alert('OK');
-		};
-	</script>
+				echo '<p>Inicia sesión</p><a href="../templates/principal.html">Página Principal</a>';
+			?>
+		</section>
+		
+		<script src="../programs/jquery-2.2.3.js"></script>
+		<script src="../programs/juego.js"></script>
 	</body>
 </html>
