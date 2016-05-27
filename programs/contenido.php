@@ -2,10 +2,10 @@
 function jugador()
 {
 	echo '<section class="container">
-			<button class="btn btn-block btn-success" data-toggle="modal" data-target="#elmodal">
+			<button class="btn btn-block btn-success col-xs col-md-6" data-toggle="modal" data-target="#elmodal">
 				PLAY
 			</button>
-			<a class="btn btn-block btn-info href="modificarForm.php">
+			<a class="btn btn-block btn-info col-xs col-md-6" href="modificarForm.php">
 				Mofificar Perfil
 			</a>';
 	echo'<div class="modal fade" id="elmodal"role="dialog">

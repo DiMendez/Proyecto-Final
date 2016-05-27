@@ -34,6 +34,10 @@ fieldset
 }
 .modal-content
 {
-	background-color:rgba(220,220,220,0.5);
+	background-color:rgba(220,220,220,0.9);
 	color:black;
+	box-shadow:10px 10px 5px #222;
+}
+legend{
+	font-size:130%;
 }
