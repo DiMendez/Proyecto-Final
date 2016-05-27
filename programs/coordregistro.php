@@ -15,11 +15,11 @@
 			return;
 	}
 	//validación en php
-	$a=((preg_match('/^[A-z\s]{4,28}$/i', $nom)))?true:false;
-	$b=((preg_match('/^[A-z\s]{4,28}$/i', $nom)))?true:false;
-	$c=((preg_match('/^[A-z\s]{4,28}$/i', $nom)))?true:false;
-	$d=((preg_match('/^[0-9]{6}$/i', $cuenta)))?true:false;
-	$e=((preg_match('/^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/i' ,$contra)))?true:false;
+	$a=((preg_match('/^[A-z\s]{4,28}$/i', $nom))==1)?true:false;
+	$b=((preg_match('/^[A-z\s]{4,28}$/i', $nom))==1)?true:false;
+	$c=((preg_match('/^[A-z\s]{4,28}$/i', $nom))==1)?true:false;
+	$d=((preg_match('/^[0-9]{6}$/i', $cuenta))==1)?true:false;
+	$e=((preg_match('/^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/i' ,$contra))==1)?true:false;
 	if(($a && $b && $c && $d && $e)== true) //si pasa por las REGEX entonces..
 	{
 		if(mysqli_num_rows($nombreQ)==0) //si hay 0 registros con ese no. de cuenta...

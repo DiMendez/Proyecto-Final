@@ -14,9 +14,9 @@
 			return;
 	}
 	//Aquí va otra validación porque #Angie dijo que nunca sobran validaciones
-		$a=((preg_match('/^[A-z\d\ÁÉÍÓÚáéíó]{4,28}$/i', $nombre)))?true:false;
-		$b=((preg_match('/^[0-9]{9}$/', $cuenta)))?true:false;
-		$c=((preg_match('/^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/i' ,$contra)))?true:false;
+		$a=(preg_match('/^[A-z\d\ÁÉÍÓÚáéíó]{4,28}$/i', $nombre)==1)?true:false;
+		$b=(preg_match('/^[0-9]{9}$/', $cuenta)== 1)?true:false;
+		$c=(preg_match('/^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/i' ,$contra)==1)?true:false;
 		if(($a && $b &&$c))
 		{
 			if(mysqli_num_rows($nombreQ)==0) 
