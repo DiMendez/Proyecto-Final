@@ -28,3 +28,7 @@ footer
 	clear:both;
 	height:10px;
 }
+fieldset
+{
+	border:none;
+}
