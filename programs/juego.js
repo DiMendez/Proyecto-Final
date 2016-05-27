@@ -22,6 +22,7 @@ $("#pregunta").click(function(event){
 		type:"post",
 		dataType:"text",
 		data:{
+			pasado:'ya',
 			respAct:$("input:radio[name=opciones]:checked").val(),
 			materia:$("#mat-ronda").val(),
 			unidades:$("#uni-ronda").val(),

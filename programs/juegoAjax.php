@@ -1,4 +1,7 @@
 <?php
+session_name('actual');
+session_start();
+
 if(isset($_POST['materia']) && isset($_POST['unidades']))
 {
 	$con=mysqli_connect("127.0.0.1","root","","PROFIN");
@@ -14,15 +17,29 @@ if(isset($_POST['materia']) && isset($_POST['unidades']))
 	for($n=0;$n<$numero;$n++)
 		$arrPreg[]=mysqli_fetch_assoc($consul);
 	
-	if(isset($_POST['respAct']) && isset($_POST['respuesta']))
+	if(isset($_POST['pasado']))
 	{
-		if($_POST['respuesta']==$_POST['respAct'])
-			$buena=true;
+		if(isset($_POST['respAct']) && isset($_POST['respuesta']))
+		{
+			if($_POST['respuesta']==$_POST['respAct'])
+			{
+				$buena=true;
+				$query='UPDATE ALUMNO SET ALUMNO_BUENAS=ALUMNO_BUENAS+1,ALUMNO_PUNT=ALUMNO_PUNT+1 WHERE USUARIO_NO="'.$_SESSION["usuario"].'";';
+			}
+			else
+			{
+				$query='UPDATE ALUMNO SET ALUMNO_PUNT=ALUMNO_PUNT+1 WHERE USUARIO_NO="'.$_SESSION["usuario"].'";';
+				$buena=false;
+			}
+			mysqli_query($con,$query);
+		}
 		else
 			$buena=false;
 	}
 	else
 		$buena=true;
+	
+	mysqli_close($con);
 	
 	if($buena===true)
 	{

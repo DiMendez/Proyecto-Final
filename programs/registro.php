@@ -26,7 +26,7 @@
 				//inserta número de cuenta, contraseña y tipo de usuario en la tabla usuario
 				$insertar=mysqli_query($conexion,'INSERT INTO USUARIO(USUARIO_NO,USUARIO_HSP,USUARIO_TIPO) VALUES("'.$cuenta.'","'.$contra.'","J");');
 				//Inserta en la tabla alumno el nombre, el no. de cuenta y el grado
-				$inalum=mysqli_query($conexion,'INSERT INTO ALUMNO(USUARIO_NO,ALUMNO_NOMBRE,GRADO) VALUES("'.$cuenta.'","'.$nombre.'","'.$grado.'");');
+				$inalum=mysqli_query($conexion,'INSERT INTO ALUMNO(USUARIO_NO,ALUMNO_NOMBRE,GRADO,ALUMNO_BUENAS,ALUMNO_PUNT) VALUES("'.$cuenta.'","'.$nombre.'","'.$grado.'",0,0);');
 				if($insertar)
 				{
 					echo'Registro concluido exitosamente, '.$nombre;
