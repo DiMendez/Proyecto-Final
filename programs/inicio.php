@@ -9,6 +9,9 @@ Falta conexión con BD y el contenido que se desplegará-->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Nombre</title>
+		<script src="../frameworks/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
+		<link rel="stylesheet" href="../frameworks/bootstrap-3.3.6-dist/css/bootstrap.css"/>
+		<link rel="stylesheet" href="../styles/board.css"/>
 	</head>
 	<body>
 		<?php
