@@ -1,7 +1,7 @@
 /*Por Kevin. Valida los datos de inicio de sesión. Falta checar regex*/
 
 var expregU=new RegExp("^[0-9]{6,9}$");
-var expregC=new RegExp("^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-z])(?=.*[A-z]).*$");
+var expregC=/^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/i;
 
 //estas dos funciones change habilitan o deshabilitan el boton de submit
 $("#usuario").change(function(){
