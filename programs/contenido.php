@@ -37,7 +37,7 @@ function jugador()
 							$query='SELECT MATERIA_NO,MATERIA_NOMBRE FROM MATERIAS WHERE GRADO="'.$grado['GRADO'].'";';
 							$result=mysqli_query($conexion,$query);
 							echo '<select class="form-control" id="materia" name="materia">
-									<option selected>Escoge unidad(es)</option>';
+									<option selected>Escoge materia</option>';
 							for($x=0;$x<mysqli_num_rows($result);$x++)
 							{
 								$resultArray=mysqli_fetch_assoc($result);
@@ -65,10 +65,10 @@ function profesor()
 	echo '<section class="container">
 		<div class="row jumbotron">
 			<div class="col-xs col-md-8">
-				<img src="profejumbo.png">
+				<img class="img img-responsive" src="../resources/profejumbo.png">
 			</div>
 			<div class="col-xs col-md-4">
-				<a class="btn btn-success btn-block"href="addpregunta.php">
+				<a class="btn btn-success btn-block"href="addpreguntas.php">
 					Añadir pregunta
 				</a>
 				<a class="btn btn-block btn-info" href="modificarForm.php">
@@ -84,7 +84,7 @@ function coordinador()
 	echo '<section>
 		<div class="row jumbotron">
 			<div class="col-xs col-md-8">
-				<img src="../resources/profejumbo.png">
+				<img class="img img-responsive" src="../resources/profejumbo.png">
 			</div>
 			<div class="col-xs col-md-4">
 				<a class="btn btn-success btn-block"href="../templates/profregistro.html">
@@ -105,9 +105,9 @@ function administrador()
 {
 	echo '<header class="container">
 			<div class="row">
-				<h1 class="col-xs text-center">
+				<!--<h1 class="col-xs text-center">
 					Bienvenid@ Administrador(a)
-				</h1>
+				</h1>-->
 			</div>
 		</header>
 		<section>
