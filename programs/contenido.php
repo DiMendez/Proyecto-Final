@@ -2,12 +2,19 @@
 function jugador()
 {
 	echo '<section class="container">
+			<div class="row jumbotron">
+				<div class="col-xs col-md-8">
+					<img src="../resources/knowledge.jpg">
+				</div>
+				<div class="col-xs col-md-4">
 			<button class="btn btn-block btn-success col-xs col-md-6" data-toggle="modal" data-target="#elmodal">
 				PLAY
 			</button>
-			<a class="btn btn-block btn-info col-xs col-md-6" href="modificarForm.php">
-				Mofificar Perfil
-			</a>';
+				<a class="btn btn-block btn-info col-xs col-md-6" href="modificarForm.php">
+					Mofificar Perfil
+				</a>
+				</div>
+			</div>';
 	echo'<div class="modal fade" id="elmodal"role="dialog">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -55,8 +62,20 @@ function jugador()
 
 function profesor()
 {
-	echo '<section>
-	
+	echo '<section class="container">
+		<div class="row jumbotron">
+			<div class="col-xs col-md-8">
+				<img src="profejumbo.png">
+			</div>
+			<div class="col-xs col-md-4">
+				<a class="btn btn-success btn-block"href="addpregunta.php">
+					Añadir pregunta
+				</a>
+				<a class="btn btn-block btn-info" href="modificarForm.php">
+					Mofificar Perfil
+				</a>
+			</div>
+		</div>
 	</section>';
 }
 
