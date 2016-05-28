@@ -19,9 +19,9 @@
 				$query="SELECT * FROM PREGUNTAS WHERE PREGUNTA_XCONFIRMAR='NO';";
 				$consul=mysqli_query($con,$query);
 				$numero=mysqli_num_rows($consul);
-				echo'<div>
-					<form action="elimina.php" method="POST">
-						<table>
+				echo'<div class="container">
+					<form action="elimina.php" class="form-horizontal" method="POST">
+						<table class="table table-hover">
 							<tr>
 								<td>IMÁGENES </td>
 								<td>PREGUNTA </td>
@@ -52,12 +52,12 @@
 							</tr>';
 						}
 						echo'</table>
-						<input type="submit" value="Eliminar"/>
+						<input class="btn btn-block btn-danger" type="submit" value="Eliminar"/>
 					</form>
 				</div>';
 			}
 			else
-				echo'Algo anda mal';
+				echo'<div class="alert alert">Algo anda mal';
 		?>
 	</body>
 </html>

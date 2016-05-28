@@ -5,9 +5,15 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="viewpiort" content="width=device-width, initial-scale=1"/>
 		<script src="jquery-2.2.3.js"></script>
-		<title>Confirmación de preguntas</title>
+		<title>Confirmación de preguntas</title><script src="../programs/jquery-2.2.3.js"></script>
+		<script src="../frameworks/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
+		<link rel="stylesheet" href="../frameworks/bootstrap-3.3.6-dist/css/bootstrap.css"/>
+		<link rel="stylesheet" href="../styles/board.css"/>
+
 	</head>
 	<body>
+	<div class="container text-center" >
+	<h2>
 	<?php
 		$con=mysqli_connect("127.0.0.1","root","MOOKAD00","PROFIN");
 		if($con)
@@ -23,7 +29,7 @@
 					$query="DELETE FROM PROFESORES WHERE PREGUNTA_NOMBRE='".$borra."' PREGUNTA_XCONFIRMAR='NO';";
 					$consul=mysqli_query($con,$query);
 					if($consul)
-						echo'Elimindada';
+						echo'Eliminada';
 					else
 						echo'Ah no';
 				}
@@ -45,6 +51,8 @@
 			mysqli_close($con);
 		}
 	?>
+	</h2>	
+	</div>
 	<script>
 
 	</script>
