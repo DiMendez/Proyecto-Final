@@ -28,7 +28,7 @@ function jugador()
 					</fieldset>
 					<fieldset id="materia-field">
 						<legend>Escoge materia</legend>';
-						$conexion=mysqli_connect("127.0.0.1","root","MOOKAD00","PROFIN");
+						$conexion=mysqli_connect("127.0.0.1","root","","PROFIN");
 						if($conexion)
 						{
 							$query='SELECT GRADO FROM ALUMNO WHERE USUARIO_NO="'.$_SESSION['usuario'].'";';
@@ -84,7 +84,7 @@ function coordinador()
 	echo '<section>
 		<div class="row jumbotron">
 			<div class="col-xs col-md-8">
-				<img src="profejumbo.png">
+				<img src="../resources/profejumbo.png">
 			</div>
 			<div class="col-xs col-md-4">
 				<a class="btn btn-success btn-block"href="../templates/profregistro.html">
