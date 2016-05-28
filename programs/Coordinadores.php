@@ -6,6 +6,10 @@
 		<meta name="viewpiort" content="width=device-width, initial-scale=1"/>
 		<script src="jquery-2.2.3.js"></script>
 		<title>Confirmación de preguntas</title>
+		<script src="../programs/jquery-2.2.3.js"></script>
+		<script src="../frameworks/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
+		<link rel="stylesheet" href="../frameworks/bootstrap-3.3.6-dist/css/bootstrap.css"/>
+		<link rel="stylesheet" href="../styles/board.css"/>
 	</head>
 	<body>
 		<?php
