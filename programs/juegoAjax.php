@@ -5,14 +5,14 @@ session_start();
 //uega
 if(isset($_POST['materia']) && isset($_POST['unidades']))
 {
-	$con=mysqli_connect("127.0.0.1","root","MOOKAD00","PROFIN");
+	$con=mysqli_connect("127.0.0.1","root","","PROFIN");
 	$materia=mysqli_real_escape_string($con,$_POST['materia']);
 	$arrUnidades=explode(' ',$_POST['unidades']);
-	$query="SELECT * FROM PREGUNTAS WHERE PREGUNTA_XCONFIRMAR='SI' AND MATERIA_NO='".$materia."' AND UNIDAD_NO='".$arrUnidades[0]."'";
+	$query="SELECT * FROM PREGUNTAS WHERE PREGUNTA_XCONFIRMAR='SI' AND MATERIA_NO='".$materia."' AND (UNIDAD_NO='".$arrUnidades[0]."'";
 	
 	for($i=1;$i<count($arrUnidades);$i++)
 		$query=$query." OR UNIDAD_NO='".$arrUnidades[$i]."'";
-	$consul=mysqli_query($con,$query.';');
+	$consul=mysqli_query($con,$query.');');
 	
 	$numero=mysqli_num_rows($consul);
 	for($n=0;$n<$numero;$n++)
