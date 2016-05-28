@@ -24,7 +24,6 @@
 				if(isset($_POST['pregsi'.$i]))
 				{
 					$borra=$_POST['pregsi'.$i];
-					var_dump($borra);
 					$query="DELETE FROM PROFESOR WHERE PROFESOR.USUARIO_NO='".$borra."';";
 					$query2="DELETE FROM USUARIO WHERE USUARIO.USUARIO_NO='".$borra."';";
 					$consul=mysqli_query($con,$query);
@@ -41,7 +40,6 @@
 				if(isset($_POST['pregsi'.$i]))
 				{
 					$borra2=$_POST['pregsi'.$i];
-					var_dump($borra2);
 					$query3="DELETE FROM ALUMNO WHERE USUARIO_NO='".$borra2."';";
 					$query4="DELETE FROM USUARIO WHERE USUARIO_NO='".$borra2."';";
 					$consul2=mysqli_query($con,$query3);
