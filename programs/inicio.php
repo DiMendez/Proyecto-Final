@@ -18,24 +18,36 @@ Falta conexión con BD y el contenido que se desplegará-->
 		<?php
 		session_name('actual');
 		session_start();
-		$conexion=mysqli_connect("127.0.0.1","root","MOOKAD00","PROFIN");
+		$conexion=mysqli_connect("127.0.0.1","root","","PROFIN");
 		if(isset($_POST['usuario']) && isset($_POST['contra']))
 		{
 			$usuario=mysqli_real_escape_string($conexion,$_POST['usuario']);
-			$query='SELECT USUARIO.*,ALUMNO.ALUMNO_NOMBRE FROM USUARIO NATURAL JOIN ALUMNO WHERE USUARIO_NO="'.$usuario.'";';
+			$query='SELECT * FROM USUARIO WHERE USUARIO_NO="'.$usuario.'";';
 			$result=mysqli_query($conexion,$query);
 			
-			if(mysqli_num_rows($result)>0 || $_POST['usuario']=='315294378')	//existe el usuario en la DB
+			if(mysqli_num_rows($result)>0)	//existe el usuario en la DB
 			{
-				
 				$resultArray=mysqli_fetch_assoc($result);		
 				$contra=$_POST['contra'];												//implementar hash?
-				if($contra==$resultArray['USUARIO_HSP'] || $_POST['contra']=='hola')
+				if($contra==$resultArray['USUARIO_HSP'])
 				{	
-					
-					$_SESSION['nombre']=$resultArray['ALUMNO_NOMBRE'];
 					$_SESSION['tipo']=$resultArray['USUARIO_TIPO'];
 					$_SESSION['usuario']=$resultArray['USUARIO_NO'];
+					if($resultArray['USUARIO_TIPO']=='J')
+					{
+						$query='SELECT * FROM ALUMNO WHERE USUARIO_NO="'.$resultArray["USUARIO_NO"].'";';
+						$resultAl=mysqli_query($conexion,$query);
+						$arrAlumno=mysqli_fetch_assoc($resultAl);
+						$_SESSION['nombre']=$arrAlumno['ALUMNO_NOMBRE'];						
+					}
+					elseif($resultArray['USUARIO_TIPO']=='C' || $resultArray['USUARIO_TIPO']=='A' || $resultArray['USUARIO_TIPO']=='P')
+					{
+						$query='SELECT * FROM PROFESOR WHERE USUARIO_NO="'.$resultArray["USUARIO_NO"].'";';
+						$resultProf=mysqli_query($conexion,$query);
+						$arrProf=mysqli_fetch_assoc($resultProf);
+						$_SESSION['nombre']=$arrProf['PROFESOR_NOMBRE'];						
+					}
+					
 					$qj="SELECT VISITAS_".$resultArray['USUARIO_TIPO']." FROM VISITAS"; //agrega no. de visitas
 					$juga=mysqli_query($conexion,$qj);
 					if($juga)
@@ -58,7 +70,6 @@ Falta conexión con BD y el contenido que se desplegará-->
 			}
 			else
 				echo '</p>Ese usuario no existe</p><a href="../templates/principal.html">Página Principal</a>';
-			
 		}
 		
 		
