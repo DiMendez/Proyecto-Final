@@ -1,3 +1,4 @@
+<!--Por Alma Registra coordinadores-->
 <?php
 	$conexion=mysqli_connect('localhost','root','MOOKAD00','PROFIN'); //establece conexión con la DB PROFIN
 	$nom=$_POST['nom']; //evita inyecciones sql C: 
@@ -11,7 +12,7 @@
 	function ups() //simple y mortal función, regresa a la página de admin
 	{
 			echo'<br/>';
-			echo'<a href="../templates/administradores.html">Regresar</a>';
+			echo'<a href="../programs/inicio.php">Regresar</a>';
 			return;
 	}
 	//validación en php
@@ -40,9 +41,7 @@
 			}
 		}
 		else
-		{
 			ups();
-		}
 	}
 	else
 	{

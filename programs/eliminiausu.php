@@ -1,3 +1,4 @@
+<!--Por Diana elimina usuarios-->
 <!DOCTYPEhtml>
 <html>
 	<head>
@@ -5,7 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="viewpiort" content="width=device-width, initial-scale=1"/>
 		<script src="jquery-2.2.3.js"></script>
-		<title>Confirmación de preguntas</title>
+		<title>Elimina Usuarios</title>
 	</head>
 	<body>
 	<?php
@@ -19,7 +20,7 @@
 			$nconsul=mysqli_num_rows($consul);
 			$nconsul2=mysqli_num_rows($consul2);
 			$numero=$nconsul+$nconsul2;
-			for($i=0;$i<$nconsul;$i++)
+			for($i=0;$i<$nconsul;$i++)//elimina profesores
 			{
 				if(isset($_POST['pregsi'.$i]))
 				{
@@ -35,7 +36,7 @@
 				}
 
 			}
-			for($i=$nconsul;$i<$numero;$i++)
+			for($i=$nconsul;$i<$numero;$i++)//elimina alumnos
 			{
 				if(isset($_POST['pregsi'.$i]))
 				{
@@ -54,8 +55,5 @@
 			mysqli_close($con);
 		}
 	?>
-	<script>
-
-	</script>
 	</body>
 </html>

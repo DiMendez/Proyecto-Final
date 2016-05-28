@@ -1,3 +1,4 @@
+<!--Por Kevin y Bruce principalmente-->
 <!DOCTYPEhtml>
 <html>
 	<head>
@@ -25,7 +26,7 @@
 					else
 					{
 						$unidades='';
-						for($x=1;$x<21;$x++)
+						for($x=1;$x<21;$x++) //saca unidades dependiendo de la materia elegida 
 						{
 							$id='unidad-'.$x;
 							if(isset($_POST[$id]))
@@ -55,8 +56,6 @@
 			else
 				echo '<p>Inicia sesión</p><a href="../templates/principal.html">Página Principal</a>';
 			?>
-		
-		
 		<script src="../programs/jquery-2.2.3.js"></script>
 		<script src="../programs/juego.js"></script>
 	</body>

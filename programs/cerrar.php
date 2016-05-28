@@ -4,6 +4,7 @@ session_start();
 session_unset();
 session_destroy();
 ?>
+<!--Por Kevin Cierra-->
 <!DOCTYPE html>
 <html>
 	<head>
