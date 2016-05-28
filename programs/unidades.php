@@ -11,8 +11,8 @@ if(isset($_POST['materia']))
 		$resultArray=mysqli_fetch_assoc($result);
 		$numero=$resultArray["UNIDAD_NO"];
 		$nombre=$resultArray["UNIDAD_NOMBRE"];
-		$nuevo='<div class="radio"><label>'.$numero.'.- '.$nombre.'
-														<input type="checkbox" name="unidad-'.$y.'" value="'.$numero.'"/>
+		$nuevo='<div class="radio"><label><input type="checkbox" name="unidad-'.$y.'" value="'.$numero.'" checked/>'.$numero.'.- '.$nombre.'
+														
 													</label>
 												</div>';
 		$html=$html.$nuevo;

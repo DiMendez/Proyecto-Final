@@ -32,7 +32,7 @@ fieldset
 {
 	border:none;
 }
-.modal-content
+.modal-content, .jumbotron
 {
 	background-color:rgba(220,220,220,0.9);
 	color:black;
@@ -40,4 +40,8 @@ fieldset
 }
 legend{
 	font-size:130%;
+}
+select
+{
+	color:black;
 }
