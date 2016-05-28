@@ -40,9 +40,7 @@
 						<form method="post" class="form-horizontal" action="cerrar.php">
 							<input type="hidden" name="materia" id="mat-ronda" value="'.$_POST["materia"].'"/>
 							<input type="hidden" name="unidades" id="uni-ronda" value="'.$unidades.'"/>
-							<div class="col-xs">
-							<input class="block-center btn btn-block btn-success" type="submit" value="Empezar" id="empezar"/>
-							</div>
+							<input class="btn btn-block btn-success" type="submit" value="Empezar" id="empezar"/>
 						</form>
 						</section>';
 					}
