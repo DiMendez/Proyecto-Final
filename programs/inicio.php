@@ -65,7 +65,7 @@ Falta conexión con BD y el contenido que se desplegará-->
 		if(isset($_SESSION['tipo']) && isset($_SESSION['usuario']) && isset($_SESSION['nombre']))	//Quité $_SESSION['nombre']	Falta sacar de BD
 		{
 			include_once "contenido.php";
-			echo '<h1 class="text-center">Bienvenido '.$_SESSION['nombre'].'</h1>';
+			echo '<h1 class="text-center">Bienvenid@ '.$_SESSION['nombre'].'</h1>';
 			if($_SESSION['tipo']=='J')						
 			{
 				jugador();	//despliega pantalla para el alumno
@@ -83,11 +83,13 @@ Falta conexión con BD y el contenido que se desplegará-->
 			{
 				administrador();	//despliega pantalla para el administrador
 			}
-			
+			echo '<div class="container"><div class="row text-center">
+										<a class="btn btn-large btn-warning" href="./cerrar.php">Cerrar Sesión</a>
+									</div></div>';
 			mysqli_close($conexion);
 		}
 		else
-			echo '<p>Inicia sesión</p><a href="../templates/principal.html">Página Principal</a>';
+			echo '<p>Inicia sesión</p><a class="btn btn-large" href="../templates/principal.html">Página Principal</a>';
 		?>
 	</body>
 </html>
