@@ -37,7 +37,7 @@ function jugador()
 							$query='SELECT MATERIA_NO,MATERIA_NOMBRE FROM MATERIAS WHERE GRADO="'.$grado['GRADO'].'";';
 							$result=mysqli_query($conexion,$query);
 							echo '<select class="form-control" id="materia" name="materia">
-									<option selected>Escoge unidad(es)</option>';
+									<option selected>Escoge materia</option>';
 							for($x=0;$x<mysqli_num_rows($result);$x++)
 							{
 								$resultArray=mysqli_fetch_assoc($result);
