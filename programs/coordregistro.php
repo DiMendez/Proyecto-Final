@@ -11,7 +11,7 @@
 	function ups() //simple y mortal función, regresa a la página de admin
 	{
 			echo'<br/>';
-			echo'<a href="../templates/administradores.html">Regresar</a>';
+			echo'<a href="../programs/inicio.php">Regresar</a>';
 			return;
 	}
 	//validación en php
