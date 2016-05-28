@@ -1,3 +1,4 @@
+<!--Por Alma Registra coordinadores-->
 <?php
 	$conexion=mysqli_connect('localhost','root','MOOKAD00','PROFIN'); //establece conexión con la DB PROFIN
 	$nom=$_POST['nom']; //evita inyecciones sql C: 
@@ -40,9 +41,7 @@
 			}
 		}
 		else
-		{
 			ups();
-		}
 	}
 	else
 	{

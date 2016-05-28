@@ -1,3 +1,4 @@
+<!--Por Diana Manda a pantalla las preguntas para confirmar-->
 <!DOCTYPEhtml>
 <html>
 	<head>
@@ -32,7 +33,7 @@
 								<td>NÚMERO DE LA RESPUESTA</td>
 								<td>¿ELIMINAR?</td>
 							</tr>';
-						for($n=0;$n<$numero;$n++)
+						for($n=0;$n<$numero;$n++)//manda preguntas por confirmar
 						{
 							$arrPreg[]=mysqli_fetch_assoc($consul);
 							$pregunta=$arrPreg[$n];

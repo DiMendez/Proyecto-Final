@@ -1,3 +1,4 @@
+<!--Por Diana y Alma inserta imagenes a la BD-->
 <?php
 	var_dump($_FILES);
 	$conexion=mysqli_connect("127.0.0.1","root","","PROFIN"); //Establece conexión con la base de datos
@@ -10,12 +11,10 @@
 		//si no encuentran una coincidencia con eso, entonces es incorrecto
 		if(!((strpos($tipo,"gif") || strpos($tipo,"png") 
 			|| strpos($tipo,"jpeg") || strpos($tipo,"bmp")) && ($size <200000)))
-		{
-			echo'El tamaño o la extensión no es correcta';
-			echo'<br/>';
-			echo'Se permiten archivos con extensión gif,jpeg,png,bmp y un tamaño menor a 200 kb';
-			echo'<a href="../inicio.php">Regresar</a>';
-		}
+			echo'El tamaño o la extensión no es correcta
+			<br/>
+			Se permiten archivos con extensión gif,jpeg,png,bmp y un tamaño menor a 200 kb
+			<a href="../inicio.php">Regresar</a>';
 		else
 		{
 			//vamos a mandar la información a la DB
@@ -27,22 +26,15 @@
 					$cad='INSERT INTO PREGUNTAS(PREGUNTA_MEDIA) VALUES("../resources/'.$nomarchivo.'");';
 					$ruta=mysqli_query($conexion,$cad);
 					if($ruta)
-					{
 						echo'Tu pregunta se ha cargado correctamente';
-					}
-					
 				}
 				else 
-				{
-					echo'Al parecer, hubo un error';
-					echo'<a href="../inicio.php">Regresar</a>';
-				}
+					echo'Al parecer, hubo un error
+					<a href="../inicio.php">Regresar</a>';
 			}
 			else
-			{
-				echo'Al parecer hubo un error al cargar archivo';
-				echo'<a href="../inicio.php">Regresar</a>';
-			}
+				echo'Al parecer hubo un error al cargar archivo
+				<a href="../inicio.php">Regresar</a>';
 		}
 	}
 	else

@@ -1,7 +1,8 @@
+<!--Por Kevin Interactua en triangulo con guego y el .hs-->
 <?php
 session_name('actual');
 session_start();
-
+//uega
 if(isset($_POST['materia']) && isset($_POST['unidades']))
 {
 	$con=mysqli_connect("127.0.0.1","root","MOOKAD00","PROFIN");

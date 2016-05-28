@@ -1,3 +1,4 @@
+<!-- Por Alma Saca unidades-->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,12 +14,12 @@
 	<body>
 		<?php
 		if(isset($_POST['materia']))
-		{
+		{  
 			$conexion=mysqli_connect("127.0.0.1","root","","PROFIN");
 			$query='SELECT UNIDAD_NO,UNIDAD_NOMBRE FROM UNIDAD WHERE MATERIA_NO="'.$_POST['materia'].'";';
 			$result=mysqli_query($conexion,$query);
 			$html='<legend>Escoge Unidad</legend>';
-			for($x=0;$x<mysqli_num_rows($result);$x++)
+			for($x=0;$x<mysqli_num_rows($result);$x++)//Elige unidades
 			{
 				$y=$x+1;
 				$resultArray=mysqli_fetch_assoc($result);
