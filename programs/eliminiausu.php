@@ -10,7 +10,7 @@
 	</head>
 	<body>
 	<?php
-		$con=mysqli_connect("127.0.0.1","root","MOOKAD00","PROFIN");
+		$con=mysqli_connect("127.0.0.1","root","","PROFIN");
 		if($con)
 		{
 			$query="SELECT * FROM PROFESOR;";

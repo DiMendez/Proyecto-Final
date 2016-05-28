@@ -1,5 +1,5 @@
 <?php
-	$conexion=mysqli_connect('localhost','root','MOOKAD00','PROFIN'); //establece conexión con la DB PROFIN
+	$conexion=mysqli_connect('localhost','root','','PROFIN'); //establece conexión con la DB PROFIN
 	$nom=mysqli_real_escape_string($conexion,$_POST['nom']); //evita inyecciones sql C: 
 	$app=mysqli_real_escape_string($conexion,$_POST['app']);
 	$apm=mysqli_real_escape_string($conexion,$_POST['apm']);
