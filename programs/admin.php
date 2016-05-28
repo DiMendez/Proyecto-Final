@@ -6,6 +6,9 @@
 		<meta name="viewpiort" content="width=device-width, initial-scale=1"/>
 		<script src="jquery-2.2.3.js"></script>
 		<title>Eliminación de usuarios</title>
+		<script src="../frameworks/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
+		<link rel="stylesheet" href="../frameworks/bootstrap-3.3.6-dist/css/bootstrap.css"/>
+		<link rel="stylesheet" href="../styles/board.css"/>
 	</head>
 	<body>
 		<?php
@@ -21,10 +24,10 @@
 				$nconsul2=mysqli_num_rows($consul2);
 				$numero=$nconsul+$nconsul2;
 				var_dump($nconsul2);
-				echo'<div>
-					<form action="eliminiausu.php" method="POST">
+				echo'<div class="container">
+					<form class="form-horizontal" action="eliminiausu.php" method="POST">
 						PROFESORES
-						<table>
+						<table class="table">
 							<tr>
 								<td>USUARIO </td>
 								<td>ÚLTIMA FECHA DE ENTRADA </td>

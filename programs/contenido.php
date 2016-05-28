@@ -113,8 +113,8 @@ function administrador()
 		<section>
 			<div>
 				<ul>
-					<li><a href="coordregistro.html">Añadir coordinadores</a></li>
-					<li><a href="#">Acceso a información de usuarios</a></li>
+					<li><a href="../templates/coordregistro.html">Añadir coordinadores</a></li>
+					<li><a href="admin.php">Eliminar Usuarios</a></li>
 					<li><a href="#">Estadísticas de uso mensual del sistema</a></li>
 				</ul>
 			</div>
