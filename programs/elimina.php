@@ -1,3 +1,4 @@
+<!--Por Diana Elimina de la BD las preguntas seleccionadas y agrega si a las que no lo fueron-->
 <!DOCTYPEhtml>
 <html>
 	<head>
@@ -15,7 +16,7 @@
 	<div class="container text-center" >
 	<h2>
 	<?php
-		$con=mysqli_connect("127.0.0.1","root","MOOKAD00","PROFIN");
+		$con=mysqli_connect("127.0.0.1","root","","PROFIN");
 		if($con)
 		{
 			$q="SELECT PREGUNTA_NOMBRE FROM PREGUNTAS WHERE PREGUNTA_XCONFIRMAR='NO';";
@@ -23,10 +24,10 @@
 			$n=mysqli_num_rows($c);
 			for($i=0;$i<$n;$i++)
 			{
-				if(isset($_POST['pregsi'.$i]))
+				if(isset($_POST['pregsi'.$i])) //elimina de la BD las preguntas con check
 				{
 					$borra=$_POST['pregsi'.$i];
-					$query="DELETE FROM PROFESORES WHERE PREGUNTA_NOMBRE='".$borra."' PREGUNTA_XCONFIRMAR='NO';";
+					$query="DELETE FROM PREGUNTAS WHERE PREGUNTA_NOMBRE='".$borra."' AND PREGUNTA_XCONFIRMAR='NO';";
 					$consul=mysqli_query($con,$query);
 					if($consul)
 						echo'Eliminada';
@@ -37,7 +38,7 @@
 			}
 			$ca=mysqli_query($con,$q);
 			$na=mysqli_num_rows($ca);
-			for($i=0;$i<$na;$i++)
+			for($i=0;$i<$na;$i++)//hace confirmacion de las preguntas
 			{
 				$yapasa[]=mysqli_fetch_assoc($ca);
 				$si=$yapasa[$i];
