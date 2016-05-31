@@ -16,6 +16,7 @@ Falta conexión con BD y el contenido que se desplegará-->
 	</head>
 	<body>
 		<?php
+		$i=date('Y-m-d');
 		session_name('actual');
 		session_start();
 		$conexion=mysqli_connect("127.0.0.1","root","","PROFIN");
@@ -34,7 +35,9 @@ Falta conexión con BD y el contenido que se desplegará-->
 					$_SESSION['tipo']=$resultArray['USUARIO_TIPO'];
 					$_SESSION['usuario']=$resultArray['USUARIO_NO'];
 					if($resultArray['USUARIO_TIPO']=='J')
-					{
+					{						
+						$qe="UPDATE ALUMNO SET ALUMNO_FECHA=".$i." WHERE USUARIO_NO=".$_SESSION['usuario'].";";
+						$res=mysqli_query($conexion,$qe);
 						$query='SELECT * FROM ALUMNO WHERE USUARIO_NO="'.$resultArray["USUARIO_NO"].'";';
 						$resultAl=mysqli_query($conexion,$query);
 						$arrAlumno=mysqli_fetch_assoc($resultAl);
@@ -42,6 +45,8 @@ Falta conexión con BD y el contenido que se desplegará-->
 					}
 					elseif($resultArray['USUARIO_TIPO']=='C' || $resultArray['USUARIO_TIPO']=='A' || $resultArray['USUARIO_TIPO']=='P')
 					{
+						$qe="UPDATE PROFESOR SET PROFESOR_FECHA=".$i." WHERE USUARIO_NO=".$_SESSION['usuario'].";";
+						$resp=mysqli_query($conexion,$qe);
 						$query='SELECT * FROM PROFESOR WHERE USUARIO_NO="'.$resultArray["USUARIO_NO"].'";';
 						$resultProf=mysqli_query($conexion,$query);
 						$arrProf=mysqli_fetch_assoc($resultProf);
@@ -56,9 +61,9 @@ Falta conexión con BD y el contenido que se desplegará-->
 						$pregunta=$arr[0];
 						$a='VISITAS_'.$resultArray['USUARIO_TIPO'];
 						$num=$pregunta[$a]+1;
-						$quj="UPDATE VISITAS SET VISITAS_".$resultArray['USUARIO_TIPO']."=".$num." 
+						$qu="UPDATE VISITAS SET VISITAS_".$resultArray['USUARIO_TIPO']."=".$num." 
 						WHERE VISITAS_".$resultArray['USUARIO_TIPO']."=".$pregunta[$a].";";
-						$insert=mysqli_query($conexion,$quj);
+						$insert=mysqli_query($conexion,$qu);
 						if(!$insert)
 							echo'Unsuccess';
 					}
