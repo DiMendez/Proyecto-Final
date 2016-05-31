@@ -1,6 +1,6 @@
 <?php
 	
-	$conexion=mysqli_connect('localhost','root','','PROFIN');//Por Bruce: IMPORTANTE si lo van a probar aqui la BD se llama juego
+	$conexion=mysqli_connect('localhost','root','','PROFIN');
 	//Por Bruce la BD solo contempla el campo de Cuenta y Contraseña(HSP) omitiré $_POST('name') en la querys
 	$nombre=mysqli_real_escape_string($conexion,$_POST['name']); //evita inyecciones sql
 	$cuenta=mysqli_real_escape_string($conexion,$_POST['cuenta']);

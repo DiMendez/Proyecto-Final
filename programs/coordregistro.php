@@ -1,7 +1,7 @@
 <!--Por Alma Registra coordinadores-->
 <?php
 	$conexion=mysqli_connect('localhost','root','','PROFIN'); //establece conexión con la DB PROFIN
-	$nom=$_POST['nom']; //evita inyecciones sql C: 
+	$nom=mysqli_real_escape_string($conexion,$_POST['nom']); //evita inyecciones sql C: 
 	$app=mysqli_real_escape_string($conexion,$_POST['app']);
 	$apm=mysqli_real_escape_string($conexion,$_POST['apm']);
 	$cuenta=mysqli_real_escape_string($conexion,$_POST['cuenta']);
