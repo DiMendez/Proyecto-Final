@@ -26,7 +26,7 @@
 			echo'El tamaño o la extensión no es correcta
 			<br/>
 			Se permiten archivos con extensión gif,jpeg,png,bmp y un tamaño menor a 200 kb
-			<a href="../inicio.php">Regresar</a>';
+			<a href="../programs/inicio.php">Regresar</a>';
 			else
 			{
 				//vamos a mandar la información a la DB
@@ -45,12 +45,12 @@
 								echo'Tu pregunta se ha cargado correctamente';
 						}
 						else 
-							echo'Al parecer, hubo un error
-							<a href="../inicio.php">Regresar</a>';
+							echo'Al parecer, hubo un error<br/>
+							<a href="../programs/inicio.php">Regresar</a>';
 					}
 					else
 						echo'Al parecer hubo un error al cargar archivo
-						<a href="../inicio.php">Regresar</a>';
+						<a href="../programs/inicio.php">Regresar</a>';
 				}
 			}
 		}
