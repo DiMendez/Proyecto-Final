@@ -4,15 +4,17 @@
 	//Por Bruce la BD solo contempla el campo de Cuenta y Contraseña(HSP) omitiré $_POST('name') en la querys
 	$nombre=mysqli_real_escape_string($conexion,$_POST['name']); //evita inyecciones sql
 	$cuenta=mysqli_real_escape_string($conexion,$_POST['cuenta']);
-	$contra=mysqli_real_escape_string($conexion,$_POST['contra']);
+	$contra=$_POST['contra'];
 	$grado=mysqli_real_escape_string($conexion,$_POST['grado']);
 	$nombreQ=mysqli_query($conexion,'SELECT USUARIO_NO,USUARIO_HSP FROM USUARIO WHERE USUARIO_NO="'.$cuenta.'";');
+	
 	function oh()
 	{
 			echo'<br/>';
 			echo'<a href="registro.html">Regresar</a>';
 			return;
 	}
+	
 	//Aquí va otra validación porque #Angie dijo que nunca sobran validaciones
 		$a=(preg_match('/^[A-z\d\ÁÉÍÓÚáéíó]{4,28}$/i', $nombre)==1)?true:false;
 		$b=(preg_match('/^[0-9]{9}$/', $cuenta)== 1)?true:false;
@@ -24,7 +26,8 @@
 			
 			{
 				//inserta número de cuenta, contraseña y tipo de usuario en la tabla usuario
-				$insertar=mysqli_query($conexion,'INSERT INTO USUARIO(USUARIO_NO,USUARIO_HSP,USUARIO_TIPO) VALUES("'.$cuenta.'","'.$contra.'","J");');
+				$contrasenia=hash("sha256",$contra);
+				$insertar=mysqli_query($conexion,'INSERT INTO USUARIO(USUARIO_NO,USUARIO_HSP,USUARIO_TIPO) VALUES("'.$cuenta.'","'.$contrasenia.'","J");');
 				//Inserta en la tabla alumno el nombre, el no. de cuenta y el grado
 				$inalum=mysqli_query($conexion,'INSERT INTO ALUMNO(USUARIO_NO,ALUMNO_NOMBRE,GRADO,ALUMNO_BUENAS,ALUMNO_PUNT) VALUES("'.$cuenta.'","'.$nombre.'","'.$grado.'",0,0);');
 				if($insertar)

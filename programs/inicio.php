@@ -29,7 +29,7 @@ Falta conexión con BD y el contenido que se desplegará-->
 			if(mysqli_num_rows($result)>0)	//existe el usuario en la DB
 			{
 				$resultArray=mysqli_fetch_assoc($result);		
-				$contra=$_POST['contra'];												//implementar hash?
+				$contra=hash("sha256",$_POST['contra']);					//implementar hash?
 				if($contra==$resultArray['USUARIO_HSP'])
 				{	
 					$_SESSION['tipo']=$resultArray['USUARIO_TIPO'];

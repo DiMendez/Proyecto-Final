@@ -27,16 +27,15 @@ if(isset($_SESSION['tipo']) && isset($_SESSION['usuario']))
 	}
 	else if(isset($_POST['nueva']) && isset($_POST['actual']))
 	{
-		//insertar hash a $_POST['actual']
 		$consulConAct='SELECT USUARIO_HSP FROM USUARIO WHERE USUARIO_NO="'.$_SESSION['usuario'].'";';
 		$resul=mysqli_query($conexion,$consulConAct);
 		$arr=mysqli_fetch_assoc($resul);
-		if($arr['USUARIO_HSP']==$_POST['actual'])
+		if($arr['USUARIO_HSP']==hash("sha256",$_POST['actual']))
 		{
-			$nueva=$_POST['actual'];
+			$nueva=$_POST['nueva'];
 			if(preg_match('/^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/i',$nueva)==1)
 			{
-				$conNueva=mysqli_real_escape_string($nueva);
+				$conNueva=hash("sha256",$nueva);
 				$query='UPDATE USUARIO SET USUARIO_HSP="'.$conNueva.'" WHERE USUARIO_NO="'.$_SESSION["usuario"].'";';
 				if(mysqli_query($conexion,$query))
 				{

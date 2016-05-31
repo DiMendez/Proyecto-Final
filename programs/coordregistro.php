@@ -5,7 +5,7 @@
 	$app=mysqli_real_escape_string($conexion,$_POST['app']);
 	$apm=mysqli_real_escape_string($conexion,$_POST['apm']);
 	$cuenta=mysqli_real_escape_string($conexion,$_POST['cuenta']);
-	$contra=mysqli_real_escape_string($conexion,$_POST['contra']);
+	$contra=$_POST['contra'];
 	$s=' ';
 	//revisa si en la base de datos no está la cuenta
 	$nombreQ=mysqli_query($conexion,'SELECT USUARIO_NO,USUARIO_HSP FROM USUARIO WHERE USUARIO_NO="'.$cuenta.'";');
@@ -25,7 +25,8 @@
 	{
 		if(mysqli_num_rows($nombreQ)==0) //si hay 0 registros con ese no. de cuenta...
 		{
-			$insertar=mysqli_query($conexion,'INSERT INTO USUARIO(USUARIO_NO,USUARIO_HSP,USUARIO_TIPO) VALUES("'.$cuenta.'","'.$contra.'","C");');
+			$contrasenia=hash("sha256",$contra);
+			$insertar=mysqli_query($conexion,'INSERT INTO USUARIO(USUARIO_NO,USUARIO_HSP,USUARIO_TIPO) VALUES("'.$cuenta.'","'.$contrasenia.'","C");');
 			//inserta número de cuenta, nombre, app, apm a la tabla profesor 
 			$insertnom=mysqli_query($conexion,'INSERT INTO PROFESOR(USUARIO_NO,PROFESOR_NOMBRE) VALUES("'.$cuenta.'","'.$nom.$s.$app.$s.$apm.'");');
 			//comprueba que haya insertado a la DB
