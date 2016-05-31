@@ -16,7 +16,7 @@
 		{
 			echo '<div class="container"><form class="form-horizontal" action="modificar.php" method="post">
 				<label class="control-label">Nombre de usuario</label>
-				<input class="form-control" type="password" name="us-nuevo"/>
+				<input class="form-control" type="text" name="us-nuevo"/>
 				<input class="btn btn-block btn-warning" type="submit" value="Modificar"/>
 			</form>
 			<form class="form-horizontal" action="modificar.php" method="post">

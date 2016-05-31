@@ -17,9 +17,10 @@ if(isset($_SESSION['tipo']) && isset($_SESSION['usuario']))
 			$tabla='PROFESOR';
 		}
 		$nuevo=mysqli_real_escape_string($conexion,$_POST['us-nuevo']);
-		$query='UPDATE '.$tabla.' SET '.$dato.'="'.$nuevo'" WHERE USUARIO_NO="'.$_SESSION["usuario"].'";';
+		$query='UPDATE '.$tabla.' SET '.$dato.'="'.$nuevo.'" WHERE USUARIO_NO="'.$_SESSION["usuario"].'";';
 		if(mysqli_query($conexion,$query))
 		{
+			$_SESSION['nombre']=$nuevo;
 			echo '<p>Tu nombre ha sido cambiado</p><a href="inicio.php">Regresar</a>';
 		}
 		else
