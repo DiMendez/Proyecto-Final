@@ -54,6 +54,7 @@
 			}
 			mysqli_close($con);
 		}
+		echo '<a href="inicio.php">Regresar</a>';
 	?>
 	</body>
 </html>
