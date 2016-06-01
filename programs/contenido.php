@@ -103,21 +103,24 @@ function coordinador()
 
 function administrador()
 {
-	echo '<header class="container">
-			<div class="row">
-				<!--<h1 class="col-xs text-center">
-					Bienvenid@ Administrador(a)
-				</h1>-->
+	echo 
+	'<section class="container">
+		<div class="row jumbotron">
+			<div class="col-xs col-md-8">
+				<img class="img center-block img-responsive" src="../resources/profejumbo.png">
 			</div>
-		</header>
-		<section>
-			<div>
-				<ul>
-					<li><a href="coordregistroForm.php">Añadir coordinadores</a></li>
-					<li><a href="admin.php">Eliminar Usuarios</a></li>
-					<li><a href="#">Estadísticas de uso mensual del sistema</a></li>
-				</ul>
+			<div class="col-xs col-md-4">
+				<a class="btn btn-success btn-block" href="admin.php">
+					Eliminar Usuarios
+				</a>
+				<a class="btn btn-block btn-info" href="coordregistroForm.php">
+					Añadir Coordinadores
+				</a>
+				<a class="btn btn-block btn-info" href="graf2.php.php">
+					Estadísticas de uso del sistema
+				</a>
 			</div>
-		</section>';
+		</div>
+	</section>';
 }	
 ?>
