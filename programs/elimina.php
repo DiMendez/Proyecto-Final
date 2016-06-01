@@ -6,7 +6,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="viewpiort" content="width=device-width, initial-scale=1"/>
 		<script src="jquery-2.2.3.js"></script>
-		<title>Confirmación de preguntas</title><script src="../programs/jquery-2.2.3.js"></script>
+		<title>Confirmación de preguntas</title>
+		<script src="../programs/jquery-2.2.3.js"></script>
 		<script src="../frameworks/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
 		<link rel="stylesheet" href="../frameworks/bootstrap-3.3.6-dist/css/bootstrap.css"/>
 		<link rel="stylesheet" href="../styles/board.css"/>
@@ -14,7 +15,6 @@
 	</head>
 	<body>
 	<div class="container text-center" >
-	<h2>
 	<?php
 		$con=mysqli_connect("127.0.0.1","root","","PROFIN");
 		if($con)
@@ -30,9 +30,9 @@
 					$query="DELETE FROM PREGUNTAS WHERE PREGUNTA_NOMBRE='".$borra."' AND PREGUNTA_XCONFIRMAR='NO';";
 					$consul=mysqli_query($con,$query);
 					if($consul)
-						echo'Eliminada';
+						echo'<h2>Pregunta eliminada</h2>';
 					else
-						echo'Ah no';
+						echo'<h2>Hubo un error</h2>';
 				}
 
 			}
@@ -45,14 +45,13 @@
 				$nom="UPDATE PREGUNTAS SET PREGUNTA_XCONFIRMAR='SI' WHERE PREGUNTA_NOMBRE='".$si['PREGUNTA_NOMBRE']."';";
 				$arregla=mysqli_query($con,$nom);
 				if($arregla)
-					echo'Success';
+					echo'<p>El resto de las preguntas fueron aceptadas</p>';
 				else
-					echo'No pus no';
+					echo'<p>Hubo un error para confirmar las preguntas<p>';
 			}
 			mysqli_close($con);
 		}
-	?>
-	</h2>	
+	?>	
 	</div>
 	<script>
 

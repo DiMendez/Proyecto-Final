@@ -11,7 +11,7 @@
 	function ups() //simple y mortal función, regresa a la página del cordinador
 	{
 			echo'<br/>';
-			echo'<a href="../templates/coordinadores.html">Regresar</a>';
+			echo'<a href="../programs/inicio.php">Regresar</a>';
 			return;
 	}
 	//validación en php
@@ -32,12 +32,12 @@
 			//comprueba que haya insertado a la DB
 			if($insertnom && $insertar)
 			{
-				echo 'El registro se ha efectuado de manera exitosa para el coordinador: '.$nom;
+				echo '<h2>El registro se ha efectuado de manera exitosa para el profesor: '.$nom.'</h2>';
 				ups();
 			}
 			else
 			{
-				echo 'Algo ha fallado con el registro';
+				echo '<h2>Algo ha fallado con el registro</h2>';
 				ups();
 			}
 		}

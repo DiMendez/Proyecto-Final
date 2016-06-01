@@ -30,7 +30,6 @@ $(document).ready(function(){
                     $("#form").hide();
                 }
             });
-			alert("El formulario se ha enviado");
         }
     });
 	

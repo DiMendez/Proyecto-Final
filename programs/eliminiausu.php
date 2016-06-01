@@ -30,9 +30,9 @@
 					$consul=mysqli_query($con,$query);
 					$uconsul=mysqli_query($con,$query2);
 					if($consul&&$uconsul)
-						echo'Elimindada1';
+						echo'<h2>Profesores eliminados correctamente<h2>';
 					else
-						echo'Ah no1';
+						echo'<h2>Hubo un error para eliminar profesores</h2>';
 				}
 
 			}
@@ -46,9 +46,9 @@
 					$consul2=mysqli_query($con,$query3);
 					$uconsul2=mysqli_query($con,$query4);
 					if($consul2&&$uconsul2)
-						echo'Elimindada2';
+						echo'<h2>Alumnos eliminados correctamente</h2>';
 					else
-						echo'Ah no1';
+						echo'<h2>Hubo un error para eliminar alumnos</h2>';
 				}
 
 			}

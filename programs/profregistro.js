@@ -29,7 +29,6 @@ $(document).ready(function(){
                     $("#form").hide();
                 }
             });
-			alert("formulario enviado");
         }
     });
 	
