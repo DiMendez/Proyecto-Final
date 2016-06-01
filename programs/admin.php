@@ -26,12 +26,12 @@
 				$numero=$nconsul+$nconsul2;
 				echo'<div class="container">
 					<form class="form-horizontal" action="eliminiausu.php" method="POST">
-						PROFESORES
+						<h3 class="text-center">PROFESORES</h3>
 						<table class="table table-hover">
 							<tr>
-								<td>USUARIO </td>
-								<td>ÚLTIMA FECHA DE ENTRADA </td>
-								<td>¿ELIMINAR?</td>
+								<th>USUARIO </th>
+								<th>ÚLTIMA FECHA DE ENTRADA </th>
+								<th>¿ELIMINAR?</th>
 							</tr>';
 						for($n=0;$n<$nconsul;$n++)
 						{
@@ -40,17 +40,17 @@
 							echo'<tr>
 								<td>'.$profs["PROFESOR_NOMBRE"].'</td>
 								<td>'.$profs["PROFESOR_FECHA"].'</td>
-								<td><input type="checkbox" name="pregsi'.$n.'"
+								<td class="text-center"><input type="checkbox" name="pregsi'.$n.'"
 								value="'.$profs["USUARIO_NO"].'"/></td>
 							</tr>';
 						}
 						echo'</table>
-						ALUMNOS
+						<h3 class="text-center">ALUMNOS</h3>
 						<table class="table table-hover">
 							<tr>
-								<td>USUARIO </td>
-								<td>ÚLTIMA FECHA DE ENTRADA </td>
-								<td>¿ELIMINAR?</td>
+								<th>USUARIO </th>
+								<th>ÚLTIMA FECHA DE ENTRADA </th>
+								<th>¿ELIMINAR?</th>
 							</tr>';
 						for($n=$nconsul;$n<$numero;$n++)
 						{
@@ -71,13 +71,14 @@
 							echo'<tr>
 								<td>'.$alumn["ALUMNO_NOMBRE"].'</td>
 								<td>'.$alumn["ALUMNO_FECHA"].'</td>
-								<td><input type="checkbox" name="pregsi'.$n.'"
+								<td class="text-center"><input type="checkbox" name="pregsi'.$n.'"
 								value="'.$alumn["USUARIO_NO"].'"/></td>
 							</tr>';
 							
 						}
 						echo'</table>
-						<input type="submit" value="Eliminar"/>
+						<input class="btn btn-danger" type="submit" value="Eliminar"/>
+						<a class="btn btn-info" href="inicio.php">Regresar a Inicio</a>
 					</form>
 				</div>';
 			}
