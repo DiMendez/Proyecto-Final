@@ -87,7 +87,7 @@ function coordinador()
 				<img class="img center-block img-responsive" src="../resources/profejumbo.png">
 			</div>
 			<div class="col-xs col-md-4">
-				<a class="btn btn-success btn-block"href="../templates/profregistro.html">
+				<a class="btn btn-success btn-block"href="profregistroForm.php">
 					Añadir profesor
 				</a>
 				<a class="btn btn-block btn-info" href="Coordinadores.php">
@@ -113,7 +113,7 @@ function administrador()
 		<section>
 			<div>
 				<ul>
-					<li><a href="../templates/coordregistro.html">Añadir coordinadores</a></li>
+					<li><a href="coordregistroForm.php">Añadir coordinadores</a></li>
 					<li><a href="admin.php">Eliminar Usuarios</a></li>
 					<li><a href="#">Estadísticas de uso mensual del sistema</a></li>
 				</ul>

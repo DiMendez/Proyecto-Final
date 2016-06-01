@@ -68,7 +68,7 @@ Falta conexión con BD y el contenido que se desplegará-->
 							echo'Unsuccess';
 					}
 					else
-						echo'No se pudo';
+						echo'<p>No se pudo';
 				}
 				else
 					echo '<p>Contraseña incorrecta</p><a href="../templates/principal.html">Página Principal</a>';
