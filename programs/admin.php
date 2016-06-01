@@ -23,7 +23,6 @@
 				$nconsul=mysqli_num_rows($consul);
 				$nconsul2=mysqli_num_rows($consul2);
 				$numero=$nconsul+$nconsul2;
-				var_dump($nconsul2);
 				echo'<div class="container">
 					<form class="form-horizontal" action="eliminiausu.php" method="POST">
 						PROFESORES
@@ -54,7 +53,6 @@
 							</tr>';
 						for($n=$nconsul;$n<$numero;$n++)
 						{
-							var_dump($n);
 							$al[]=mysqli_fetch_assoc($consul2);
 							$alumn=$al[$n-$nconsul];
 							/*$fa=strtotime($alumn["ALUMNO_FECHA"]);
