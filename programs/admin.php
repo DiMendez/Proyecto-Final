@@ -26,7 +26,7 @@
 				echo'<div class="container">
 					<form class="form-horizontal" action="eliminiausu.php" method="POST">
 						PROFESORES
-						<table class="table">
+						<table class="table table-hover">
 							<tr>
 								<td>USUARIO </td>
 								<td>ÚLTIMA FECHA DE ENTRADA </td>
@@ -45,7 +45,7 @@
 						}
 						echo'</table>
 						ALUMNOS
-						<table>
+						<table class="table table-hover">
 							<tr>
 								<td>USUARIO </td>
 								<td>ÚLTIMA FECHA DE ENTRADA </td>
