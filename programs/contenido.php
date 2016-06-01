@@ -116,7 +116,7 @@ function administrador()
 				<a class="btn btn-block btn-info" href="coordregistroForm.php">
 					Añadir Coordinadores
 				</a>
-				<a class="btn btn-block btn-info" href="graf2.php.php">
+				<a class="btn btn-block btn-info" href="graf2.php">
 					Estadísticas de uso del sistema
 				</a>
 			</div>
