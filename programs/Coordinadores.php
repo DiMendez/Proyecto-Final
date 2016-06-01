@@ -24,14 +24,14 @@
 					<form action="elimina.php" class="form-horizontal" method="POST">
 						<table class="table table-hover">
 							<tr>
-								<td>IMÁGENES </td>
-								<td>PREGUNTA </td>
-								<td>OPCIÓN 1 </td>
-								<td>OPCIÓN 2 </td>
-								<td>OPCIÓN 3 </td>
-								<td>OPCIÓN 4 </td>
-								<td>NÚMERO DE LA RESPUESTA</td>
-								<td>¿ELIMINAR?</td>
+								<th>IMÁGENES </th>
+								<th>PREGUNTA </th>
+								<th>OPCIÓN 1 </th>
+								<th>OPCIÓN 2 </th>
+								<th>OPCIÓN 3 </th>
+								<th>OPCIÓN 4 </th>
+								<th>NÚMERO DE LA RESPUESTA</th>
+								<th>¿ELIMINAR?</th>
 							</tr>';
 						for($n=0;$n<$numero;$n++)//manda preguntas por confirmar
 						{
