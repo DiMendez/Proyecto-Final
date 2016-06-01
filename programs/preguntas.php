@@ -14,6 +14,7 @@
 	<body>
 		<?php
 			$conexion=mysqli_connect("127.0.0.1","root","","PROFIN"); //Establece conexión con la base de datos
+			mysqli_set_charset($conexion,"utf8");
 			if(isset ($_POST['materia']))
 			{
 				$materia=$_POST['materia']; //Materia que eligió

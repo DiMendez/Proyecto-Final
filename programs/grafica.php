@@ -15,6 +15,7 @@
     		<div id="grafica" style="width: 800px; height: 800px;"></div>
 		<?php
 			$conexion=mysqli_connect("127.0.0.1","root","MOOKAD00","PROFIN");
+			mysqli_set_charset($conexion,"utf8");
 			$query="SELECT * FROM VISITAS;";
 			$saca=mysqli_query($conexion,$query);
 			$arr[]=mysqli_fetch_assoc($saca);

@@ -2,6 +2,7 @@
 if(isset($_POST['materia']))
 {
 	$conexion=mysqli_connect("127.0.0.1","root","","PROFIN");
+	mysqli_set_charset($conexion,"utf8");
 	$query='SELECT UNIDAD_NO,UNIDAD_NOMBRE FROM UNIDAD WHERE MATERIA_NO="'.$_POST['materia'].'";';
 	$result=mysqli_query($conexion,$query);
 	$html='<legend>Escoge Unidad</legend>';

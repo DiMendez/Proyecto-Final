@@ -17,6 +17,7 @@
 	<div class="container text-center" >
 	<?php
 		$con=mysqli_connect("127.0.0.1","root","","PROFIN");
+		mysqli_set_charset($con,"utf8");
 		if($con)
 		{
 			$q="SELECT PREGUNTA_NOMBRE FROM PREGUNTAS WHERE PREGUNTA_XCONFIRMAR='NO';";
@@ -45,7 +46,7 @@
 				$nom="UPDATE PREGUNTAS SET PREGUNTA_XCONFIRMAR='SI' WHERE PREGUNTA_NOMBRE='".$si['PREGUNTA_NOMBRE']."';";
 				$arregla=mysqli_query($con,$nom);
 				if($arregla)
-					echo'<p>El resto de las preguntas fueron aceptadas</p>';
+					echo'<p>Pregunta aceptadas</p>';
 				else
 					echo'<p>Hubo un error para confirmar las preguntas<p>';
 			}

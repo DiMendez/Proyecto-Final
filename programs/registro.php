@@ -2,6 +2,7 @@
 	
 	$conexion=mysqli_connect('localhost','root','','PROFIN');
 	//Por Bruce la BD solo contempla el campo de Cuenta y Contraseña(HSP) omitiré $_POST('name') en la querys
+	mysqli_set_charset($conexion,"utf8");
 	$nombre=mysqli_real_escape_string($conexion,$_POST['name']); //evita inyecciones sql
 	$cuenta=mysqli_real_escape_string($conexion,$_POST['cuenta']);
 	$contra=$_POST['contra'];

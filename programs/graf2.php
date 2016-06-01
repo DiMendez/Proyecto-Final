@@ -15,6 +15,7 @@
 		<div id="chart_div" style="width: 100vw; height: 90vh;"></div>
 		<?php
 			$conexion=mysqli_connect("127.0.0.1","root","","PROFIN");
+			mysqli_set_charset($conexion,"utf8");
 			$query="SELECT * FROM VISITAS;";
 			$saca=mysqli_query($conexion,$query);
 			$arr[]=mysqli_fetch_assoc($saca);

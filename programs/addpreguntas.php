@@ -25,6 +25,7 @@
 				<fieldset id="materia_fieldset">
 					<legend>Escoge materia a la que desees agregar reactivos</legend>';
 					$conexion=mysqli_connect("127.0.0.1","root","","PROFIN");
+					mysqli_set_charset($conexion,"utf8");
 					if($conexion)
 					{
 						$result=mysqli_query($conexion,'SELECT MATERIA_NO,MATERIA_NOMBRE FROM MATERIAS;');

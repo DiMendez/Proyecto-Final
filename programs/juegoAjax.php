@@ -6,6 +6,7 @@ session_start();
 if(isset($_POST['materia']) && isset($_POST['unidades']))
 {
 	$con=mysqli_connect("127.0.0.1","root","","PROFIN");
+	mysqli_set_charset($con,"utf8");
 	$materia=mysqli_real_escape_string($con,$_POST['materia']);
 	$arrUnidades=explode(' ',$_POST['unidades']);
 	$query="SELECT * FROM PREGUNTAS WHERE PREGUNTA_XCONFIRMAR='SI' AND MATERIA_NO='".$materia."' AND (UNIDAD_NO='".$arrUnidades[0]."'";

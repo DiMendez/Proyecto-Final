@@ -29,6 +29,7 @@ function jugador()
 					<fieldset id="materia-field">
 						<legend>Escoge materia</legend>';
 						$conexion=mysqli_connect("127.0.0.1","root","","PROFIN");
+						mysqli_set_charset($conexion,"utf8");
 						if($conexion)
 						{
 							$query='SELECT GRADO FROM ALUMNO WHERE USUARIO_NO="'.$_SESSION['usuario'].'";';

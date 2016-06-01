@@ -14,6 +14,7 @@
 		<?php
 			$dat=date('Y-m-d');
 			$con=mysqli_connect("127.0.0.1","root","","PROFIN");
+			mysqli_set_charset($con,"utf8");
 			if($con)
 			{
 				$query="SELECT * FROM PROFESOR;";

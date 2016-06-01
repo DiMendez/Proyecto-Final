@@ -20,6 +20,7 @@ Falta conexión con BD y el contenido que se desplegará-->
 		session_name('actual');
 		session_start();
 		$conexion=mysqli_connect("127.0.0.1","root","","PROFIN");
+		mysqli_set_charset($conexion,"utf8");
 		if(isset($_POST['usuario']) && isset($_POST['contra']))
 		{
 			$usuario=mysqli_real_escape_string($conexion,$_POST['usuario']);
