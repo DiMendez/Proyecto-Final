@@ -11,6 +11,15 @@
 	</head>
 		</head>
 		<body>
+			<div class container>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<p class="lead textcenter">
+							<h1> Agrega preguntas</h1><br/>
+						</p>
+					</div>
+				</div>
+			</div>
 			<div class="container">
 			<form method="POST" class="form-horizontal"action="preguntas.php" >
 				<fieldset id="materia_fieldset">
