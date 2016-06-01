@@ -54,11 +54,12 @@
 						}
 						echo'</table>
 						<input class="btn btn-block btn-danger" type="submit" value="Eliminar"/>
+						<a class="btn btn-block btn-info" href="inicio.php">Regresar a Inicio</a>
 					</form>
 				</div>';
 			}
 			else
-				echo'<div class="alert alert">Algo anda mal';
+				echo'<div class="alert alert-warning">Algo anda mal';
 		?>
 	</body>
 </html>
