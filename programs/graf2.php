@@ -9,12 +9,12 @@
 		<script src="../frameworks/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
 		<link rel="stylesheet" href="../frameworks/bootstrap-3.3.6-dist/css/bootstrap.css"/>
 		<link rel="stylesheet" href="../styles/board.css"/>
-	    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	    <script type="text/javascript" src="loader.js"></script>
 	</head>
 	<body>
-		<div id="chart_div" style="width: 1000px; height: 1000px;"></div>
+		<div id="chart_div" style="width: 100vw; height: 90vh;"></div>
 		<?php
-			$conexion=mysqli_connect("127.0.0.1","root","MOOKAD00","PROFIN");
+			$conexion=mysqli_connect("127.0.0.1","root","","PROFIN");
 			$query="SELECT * FROM VISITAS;";
 			$saca=mysqli_query($conexion,$query);
 			$arr[]=mysqli_fetch_assoc($saca);
@@ -42,7 +42,8 @@
 				var chart = new google.visualization.Gauge(document.getElementById("chart_div"));
 				chart.draw(data, options);
 		      	}
-		    </script>';
+		    </script>
+			<a class="btn btn-block btn-info" href="inicio.php">Regresar a Inicio</a>';
 		?>
 	  </body>
 </html>
