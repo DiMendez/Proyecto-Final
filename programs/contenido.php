@@ -81,10 +81,10 @@ function profesor()
 
 function coordinador()
 {
-	echo '<section>
+	echo '<section class="container">
 		<div class="row jumbotron">
 			<div class="col-xs col-md-8">
-				<img class="img img-responsive" src="../resources/profejumbo.png">
+				<img class="img center-block img-responsive" src="../resources/profejumbo.png">
 			</div>
 			<div class="col-xs col-md-4">
 				<a class="btn btn-success btn-block"href="../templates/profregistro.html">

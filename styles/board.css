@@ -82,3 +82,10 @@ select
 	max-height:80%;
 	min-height:80%;
 }
+img{
+	max-height:60vh;
+}
+.table-hover>tbody>tr:hover{
+	color:#EEE;
+	background-color:rgba(200,200,200,0.3);
+}
